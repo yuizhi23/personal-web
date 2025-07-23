@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-gray-800 bg-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+  
+  h1 {
+    @apply text-4xl font-bold md:text-5xl;
+  }
+  
+  h2 {
+    @apply text-3xl font-semibold md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl font-semibold md:text-3xl;
+  }
+  
+  h4 {
+    @apply text-xl font-medium md:text-2xl;
+  }
+  
+  h5 {
+    @apply text-lg font-medium md:text-xl;
+  }
+  
+  a {
+    @apply text-primary-600 hover:text-primary-700 transition-colors;
+  }
+}
+
+@layer components {
+  .section {
+    @apply py-12 md:py-16;
+  }
+  
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-md font-medium transition-colors;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700;
+  }
+  
+  .btn-outline {
+    @apply btn border border-primary-600 text-primary-600 hover:bg-primary-50;
+  }
+  
+  .timeline-item {
+    @apply relative pl-8 pb-8 border-l-2 border-primary-200 before:content-[''] before:absolute before:top-0 before:left-[-9px] before:w-4 before:h-4 before:rounded-full before:bg-primary-600;
+  }
+
+  .timeline-item:last-child {
+    @apply border-l-0;
+  }
+  
+  .skill-bar {
+    @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+  }
+  
+  .skill-progress {
+    @apply h-full bg-primary-600 transition-all duration-1000 ease-out;
+  }
+
+  .dashboard-link {
+    @apply flex items-center p-3 rounded-md text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors;
+  }
+  
+  .dashboard-link.active {
+    @apply bg-primary-100 text-primary-700 font-medium;
+  }
+}

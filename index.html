@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yukie Kiyoshi ✦ Interactive Portfolio</title>
+  
+  <!-- SEO & OpenGraph -->
+  <meta name="description" content="Personal Portfolio of Yukie Kiyoshi — Informatics Student at Telkom University, Voice Over Artist, Content Creator, and Spokesperson.">
+  <meta property="og:title" content="Yukie Kiyoshi ✦ Interactive Portfolio">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Retro Halftone Overlay & Interactive Clickable Floating Stickers -->
+  <div class="halftone-bg"></div>
+  <div class="sticker-layer">
+    <div class="y2k-sticker" style="top: 14%; left: 2.5%; font-size: 2.6rem;" title="Click me!">🦋</div>
+    <div class="y2k-sticker" style="top: 28%; right: 3%; font-size: 2.4rem;" title="Click me!">🎵</div>
+    <div class="y2k-sticker" style="top: 50%; left: 1.5%; font-size: 2.3rem;" title="Click me!">⭐</div>
+    <div class="y2k-sticker" style="top: 68%; right: 2.5%; font-size: 2.6rem;" title="Click me!">💖</div>
+    <div class="y2k-sticker" style="top: 86%; left: 3%; font-size: 2.2rem;" title="Click me!">🎶</div>
+  </div>
+
+  <!-- ==========================================================================
+       TOP SYSTEM STATUS BAR
+       ========================================================================== -->
+  <header class="system-status-bar">
+    <div class="status-left">
+      <span class="blink-dot"></span>
+      <span id="liveClock">07:22 AM</span>
+      <span style="color:#047857; font-weight:800;">[ONLINE]</span>
+    </div>
+    <div class="status-right">
+      <span>📶 5G SPEED</span>
+      <span>VOL: 98%</span>
+      <span>🔋 [■■■■]</span>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       NAVBAR (NO DUPLICATE YUKIE KIYOSHI TEXT IN BRAND)
+       ========================================================================== -->
+  <nav id="navbar">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand" title="Home">
+        <div class="nav-brand-bubble">YK ✦</div>
+      </a>
+
+      <!-- Clean Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link-btn active">Home</a></li>
+        <li><a href="#about" class="nav-link-btn">About</a></li>
+        <li><a href="#education" class="nav-link-btn">Education</a></li>
+        <li><a href="#experience" class="nav-link-btn">Experience</a></li>
+        <li><a href="#projects" class="nav-link-btn">Projects</a></li>
+        <li><a href="#gallery" class="nav-link-btn">Gallery</a></li>
+        <li><a href="#certificates" class="nav-link-btn">Certs</a></li>
+        <li><a href="#portfolio" class="nav-link-btn">Portfolio</a></li>
+        <li><a href="#skills" class="nav-link-btn">Skills</a></li>
+        <li><a href="#contact" class="nav-link-btn">Contact</a></li>
+      </ul>
+
+      <!-- Right Actions: Sound Effect Toggle & Resume Modal -->
+      <div class="nav-right-actions">
+        <button class="sfx-toggle-btn" id="sfxToggleBtn" title="Toggle Sound Effects">
+          🔊 SFX: ON
+        </button>
+        <a href="#resumeModal" class="jelly-btn open-resume-btn" style="padding: 0.35rem 0.95rem; font-size: 0.82rem;">
+          📄 CV
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       HERO SECTION (RETRO GADGET PHONE & PROFILE FOLDERS)
+       ========================================================================== -->
+  <section id="hero">
+    <div class="container">
+      
+      <!-- Big Pixel Title Banner -->
+      <div class="hero-main-title-wrap">
+        <h1 class="hero-pixel-title">
+          YUKIE KIYOSHI
+          <img src="https://api.iconify.design/pixelarticons:mouse.svg" class="pixel-pointer-cursor" alt="Cursor">
+        </h1>
+        <div>
+          <div class="hero-sub-academic-tag">
+            <span>🎓 S1 Informatika • Telkom University</span>
+          </div>
+          <div>
+            <div class="hero-typewriter-tag" id="typewriterTag" title="Click to cycle next role!">
+              <span class="typewriter-prefix">✦ ROLE: </span>
+              <span class="typewriter-text" id="typewriterText">AI & Machine Learning Engineer</span>
+              <span class="typewriter-cursor">_</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Layout Grid -->
+      <div class="hero-layout-grid">
+        
+        <!-- LEFT COLUMN: Quick Navigation Buttons (Clean, Photo-Free & Description-Free) -->
+        <div class="hero-folders-col">
+          <button class="hero-nav-pill-btn profile-pill" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})" title="Explore Profile">
+            <span class="pill-badge">01</span>
+            <span class="pill-label">PROFILE</span>
+            <span class="pill-arrow">→</span>
+          </button>
+
+          <button class="hero-nav-pill-btn audio-pill" onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})" title="Explore Audio & Voice Over">
+            <span class="pill-badge">02</span>
+            <span class="pill-label">AUDIO</span>
+            <span class="pill-arrow">→</span>
+          </button>
+
+          <button class="hero-nav-pill-btn tech-pill" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" title="Explore Tech & Informatics Projects">
+            <span class="pill-badge">03</span>
+            <span class="pill-label">TECH</span>
+            <span class="pill-arrow">→</span>
+          </button>
+        </div>
+
+        <!-- CENTER COLUMN: Interactive Cyber Phone Gadget with Moving Video Loop -->
+        <div class="hero-gadget-wrapper">
+          <div class="cyber-phone-frame">
+            <div class="phone-screen" title="Click phone for camera shutter flash!">
+              
+              <!-- Camera Flash Effect Layer -->
+              <div class="camera-flash-layer" id="cameraFlashLayer"></div>
+
+              <!-- Phone Status Header -->
+              <div class="phone-top-bar">
+                <span>◀ REC</span>
+                <button class="phone-filter-btn" id="phoneFilterBtn" title="Cycle Camera Lens Filter" style="background:transparent; border:1px solid rgba(255,255,255,0.4); color:#fff; font-family:var(--font-pixel); font-size:0.65rem; border-radius:12px; padding:1px 8px; cursor:pointer; transition:all 0.15s ease;">📷 FILTER</button>
+                <div style="display:flex; align-items:center; gap:0.4rem;">
+                  <span>📶</span>
+                  <span>🔋</span>
+                </div>
+              </div>
+
+              <!-- Phone Screen Body: Fluid Moving Video Loop of Yukie -->
+              <div class="phone-screen-body" id="phoneScreenBody">
+                <div class="phone-filter-badge" id="phoneFilterBadge">STANDARD LENS</div>
+                <video autoplay loop muted playsinline poster="assets/Hero-Photos/yukie_loop_frame.jpg" class="phone-slide-img active" id="phoneHeroVideo">
+                  <source src="assets/Hero-Photos/yukie_loop.mp4" type="video/mp4">
+                  <img src="assets/Hero-Photos/yukie_loop.webp" alt="Yukie Kiyoshi in Motion">
+                </video>
+
+                <!-- Reference-Matching Doodle Musical Notes -->
+                <div class="phone-note note-tl">🎵</div>
+                <div class="phone-note note-tr">🎶</div>
+                <div class="phone-note note-bl">🎵</div>
+                <div class="phone-note note-br">🎶</div>
+
+                <!-- Reference-Matching Elegant Pixel Badge -->
+                <div class="phone-bubble yellow-bubble">YUKIE KIYOSHI ✦</div>
+
+                <!-- Interactive speech bubble in phone screen -->
+                <div class="phone-speech-bubble" id="phoneStatusBubble">
+                  AI Engineer & Creative Technologist ✦
+                </div>
+              </div>
+
+              <!-- Interactive Phone Bottom Toolbar (Balanced, Harmonized & Crisp) -->
+              <div class="phone-bottom-bar">
+                <button class="phone-action-btn btn-love" id="phoneLoveBtn" title="Send Reaction">
+                  <span class="btn-emoji">💖</span>
+                  <span class="btn-text">Love</span>
+                </button>
+                <button class="phone-action-btn btn-call" id="phoneCallBtn" title="Simulate Call to Yukie">
+                  <span class="btn-emoji">📞</span>
+                  <span class="btn-text">Call</span>
+                </button>
+                <button class="phone-action-btn btn-snap" id="phoneSnapBtn" title="Camera Shutter Flash">
+                  <span class="btn-emoji">📸</span>
+                  <span class="btn-text">Snap</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Desktop App Launcher Grid -->
+        <div class="hero-apps-col">
+          <div class="apps-grid-title">APPLICATIONS</div>
+          <div class="apps-icon-grid">
+            <a href="https://wa.me/6281280106134?text=Hi%20Yukie%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect%20regarding%20an%20opportunity!" target="_blank" rel="noopener" class="app-icon-item" title="Chat with Yukie on WhatsApp">
+              <div class="app-icon-box" style="background:#d9f99d;">💬</div>
+              <div class="app-icon-label">WhatsApp</div>
+            </a>
+
+            <a href="mailto:yukiekiyoshi123@gmail.com?subject=Inquiry%20%2F%20Collaboration%20Opportunity%20-%20Yukie%20Kiyoshi&body=Hi%20Yukie%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect%20with%20you%20regarding%20an%20opportunity%20or%20project%20collaboration.%0A%0ALooking%20forward%20to%20hearing%20from%20you!%0A%0ABest%20regards%2C" class="app-icon-item" title="Compose Direct Email to Yukie">
+              <div class="app-icon-box" style="background:#fef08a;">✉️</div>
+              <div class="app-icon-label">Messages</div>
+            </a>
+
+            <a href="#gallery" class="app-icon-item">
+              <div class="app-icon-box" style="background:#fbcfe8;">🐰</div>
+              <div class="app-icon-label">Photos</div>
+            </a>
+
+            <a href="#education" class="app-icon-item">
+              <div class="app-icon-box" style="background:#bfdbfe;">📅</div>
+              <div class="app-icon-label">Timeline</div>
+            </a>
+
+            <a href="#experience" class="app-icon-item">
+              <div class="app-icon-box" style="background:#ddd6fe;">🎙️</div>
+              <div class="app-icon-label">PodCast</div>
+            </a>
+
+            <a href="#certificates" class="app-icon-item">
+              <div class="app-icon-box" style="background:#fed7aa;">⚙️</div>
+              <div class="app-icon-label">Certs</div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/15lLph05Sgvaihsx_NOExqJFq4V8pacdR?hl=id" target="_blank" rel="noopener" class="app-icon-item">
+              <div class="app-icon-box" style="background:#bbf7d0;">🌐</div>
+              <div class="app-icon-label">Portfolio</div>
+            </a>
+
+            <a href="#resumeModal" class="app-icon-item open-resume-btn">
+              <div class="app-icon-box" style="background:#fef08a;">📄</div>
+              <div class="app-icon-label">Resume</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTTOM INTERACTIVE CONSOLE KEYBOARD -->
+      <div class="hero-console-bar">
+        <div class="console-search-row">
+          <button class="console-arrow-btn">❯</button>
+          <input type="text" class="console-input-field" id="consoleSearchInput" placeholder="Ask something or type 'voice', 'code', 'resume'...">
+          <button class="console-send-btn" id="consoleSendBtn">SEND ✈</button>
+        </div>
+
+        <div class="console-keypad-grid">
+          <!-- Left: Retro D-Pad Mock -->
+          <div class="console-dpad-mock" title="Directional Pad">
+            <span class="dpad-btn dpad-up" id="dpadUp">▲</span>
+            <span class="dpad-btn dpad-left" id="dpadLeft">◀</span>
+            <span class="dpad-btn dpad-center">●</span>
+            <span class="dpad-btn dpad-right" id="dpadRight">▶</span>
+            <span class="dpad-btn dpad-down" id="dpadDown">▼</span>
+          </div>
+
+          <!-- CENTER: 4-COLORED CONSOLE ACTION BUTTONS (A, B, X, Y) -->
+          <div class="console-buttons-center" title="Console Action Buttons">
+            <button class="jelly-round-btn console-btn-green" id="btnConsoleGreen" title="Action A: Ask AI">A</button>
+            <button class="jelly-round-btn red console-btn-red" id="btnConsoleRed" title="Action B: Clear Search">B</button>
+            <button class="jelly-round-btn blue console-btn-blue" id="btnConsoleBlue" title="Action X: Roll Lucky">X</button>
+            <button class="jelly-round-btn yellow console-btn-yellow" id="btnConsoleYellow" title="Action Y: Starburst Confetti">Y</button>
+          </div>
+
+          <!-- Right: Start & Select Pills -->
+          <div class="console-start-select-mock">
+            <button class="pill-slit-btn" id="consoleSelectBtn" title="Clear Search">SELECT</button>
+            <button class="pill-slit-btn" id="consoleStartBtn" title="Submit Search">START</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ABOUT SECTION
+       ========================================================================== -->
+  <section id="about">
+    <div class="container">
+      <div class="about-panel">
+        <div style="text-align: center; margin-bottom: 1.85rem;">
+          <div class="section-badge-pill">★ PROFILE CARD ★</div>
+          <h2 class="section-title">About Yukie</h2>
+        </div>
+
+        <div class="about-row">
+          <div class="about-photo-card">
+            <video autoplay loop muted playsinline poster="assets/Hero-Photos/yukie_about_loop_frame.jpg" class="about-video-el">
+              <source src="assets/Hero-Photos/yukie_about_loop.mp4" type="video/mp4">
+              <img src="assets/Hero-Photos/yukie_about_loop.webp" alt="Yukie Kiyoshi in Motion" class="about-video-el">
+            </video>
+          </div>
+
+          <div class="about-details-content">
+            <div class="speech-bubble bubble-yellow about-quote-bubble" style="margin-bottom: 1.15rem;">
+              "Engineering intelligence, articulating stories, and designing experiences with purpose ✦"
+            </div>
+
+            <h3>Multifaceted Tech & Creative Talent</h3>
+            <p class="about-desc-text">
+              I am an undergraduate Informatics student at Telkom University and an active Voice Over Artist, Content Creator, and Corporate Spokesperson. I bridge computational thinking, machine learning, and software architecture with persuasive storytelling and expressive voice artistry.
+            </p>
+
+            <div class="about-info-tags">
+              <div class="info-pill">📍 Bandung, West Java, Indonesia</div>
+              <div class="info-pill">🎓 S1 Informatika • Telkom University (2023 — 2027)</div>
+              <div class="info-pill">🏆 Mahasiswa '23 of The Year</div>
+              <div class="info-pill">🗣 English & Indonesian (Fluent)</div>
+            </div>
+
+            <div class="about-cta-btns" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="#resumeModal" class="jelly-btn open-resume-btn">Open Full Resume</a>
+              <a href="https://drive.google.com/drive/folders/15lLph05Sgvaihsx_NOExqJFq4V8pacdR?hl=id" target="_blank" rel="noopener" class="jelly-btn jelly-btn-yellow">Google Drive Archive ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Stats Counters -->
+        <div class="stats-counter-grid">
+          <div class="stat-jelly-box">
+            <div class="stat-count-num" data-target="15">15+</div>
+            <div class="stat-count-desc">Academic Projects</div>
+          </div>
+
+          <div class="stat-jelly-box yellow">
+            <div class="stat-count-num" data-target="30">30+</div>
+            <div class="stat-count-desc">Certifications</div>
+          </div>
+
+          <div class="stat-jelly-box blue">
+            <div class="stat-count-num" data-target="9">9+</div>
+            <div class="stat-count-desc">Organisational Roles</div>
+          </div>
+
+          <div class="stat-jelly-box pink">
+            <div class="stat-count-num" data-target="16">16+</div>
+            <div class="stat-count-desc">Professional Works</div>
+          </div>
+        </div>
+
+        <!-- Interactive Fortune & Quote Dispenser Widget -->
+        <div class="retro-fortune-box" id="fortuneBox">
+          <div class="fortune-top-row">
+            <div class="fortune-tag">🔮 YUKIE'S DAILY RETRO FORTUNE & QUOTE DISPENSER</div>
+            <button class="jelly-round-btn yellow" id="spinFortuneBtn" title="Click to spin a new quote!" style="padding: 0.25rem 0.85rem; width: auto; height: 34px; font-size: 0.95rem; border-radius: 999px;">
+              🎲 Spin New Quote!
+            </button>
+          </div>
+          <div class="fortune-display-quote" id="fortuneText">
+            "Your voice and creative spark are your superpower — dare to build, speak, and inspire with soul! ✦"
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EDUCATION SECTION
+       ========================================================================== -->
+  <section id="education">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="section-badge-pill">★ ACADEMIC TIMELINE ★</div>
+        <h2 class="section-title">Education Journey</h2>
+      </div>
+
+      <div class="edu-timeline-card">
+        <span class="edu-year-badge">2023 — 2027 (Expected)</span>
+        <h3 class="edu-degree-title">S1 INFORMATIKA</h3>
+        <div class="edu-school-name">Telkom University, Bandung</div>
+        <p style="color: #334155; line-height: 1.65;">
+          Focus on Machine Learning, Computer Vision, Digital Forensics, Computer Networks, and UI/UX Design. Recipient of the prestigious <strong>Mahasiswa '23 of The Year (2024 & 2025)</strong> honour from HIMA S1 Informatika Telkom University.
+        </p>
+      </div>
+
+      <div class="edu-timeline-card">
+        <span class="edu-year-badge" style="background:#fef08a;">2020 — 2023</span>
+        <h3 class="edu-degree-title">Science and Biology Major</h3>
+        <div class="edu-school-name">SMAN 12 Bekasi</div>
+        <p style="color: #334155; line-height: 1.65;">
+          Specialized in Natural Sciences and Biology. Served as Vice President of Youth Red Cross (PMR) SMAN 12 Bekasi during the 2021–2022 period.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EXPERIENCE (TABS WITH LOCKED HORIZONTAL TITLES & DATES)
+       ========================================================================== -->
+  <section id="experience">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="section-badge-pill">★ CAREER & ROLES ★</div>
+        <h2 class="section-title">Work Experience</h2>
+        <p class="section-subtitle">Professional voice artistry, multimedia content creation, and active leadership roles.</p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="experience-tabs-bar">
+        <button class="exp-tab-btn active" data-target="tab-vo">🎙️ Voice Over</button>
+        <button class="exp-tab-btn" data-target="tab-creative">🎬 Content Creation</button>
+        <button class="exp-tab-btn" data-target="tab-organisasi">👥 Organization</button>
+        <button class="exp-tab-btn" data-target="tab-leader">🏆 Leadership</button>
+      </div>
+
+      <!-- Tab 1: Voice Over -->
+      <div class="tab-pane active" id="tab-vo">
+        <div class="exp-cards-grid">
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Voice Over Artist (In-App Sound)</h3>
+              <span class="exp-date-tag">Feb 2026</span>
+            </div>
+            <div class="exp-company-sub">AyPay Mitra</div>
+            <p style="font-size: 0.95rem; color: #334155;">Produced in-app audio notifications, transaction alert chimes, and user onboarding prompts.</p>
+          </div>
+
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Voice Over & Talent</h3>
+              <span class="exp-date-tag">Jan 2026</span>
+            </div>
+            <div class="exp-company-sub">TRAVL</div>
+            <p style="font-size: 0.95rem; color: #334155;">Voiced promotional audio and hosted visual travel exploration campaign reels.</p>
+          </div>
+
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Voice Over Artist</h3>
+              <span class="exp-date-tag">Jan 2026</span>
+            </div>
+            <div class="exp-company-sub">Odesa Indonesia</div>
+            <p style="font-size: 0.95rem; color: #334155;">Narrated social documentary videos and rural community development showcases in West Java.</p>
+          </div>
+
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Voice Over Artist</h3>
+              <span class="exp-date-tag">Nov 2025</span>
+            </div>
+            <div class="exp-company-sub">Hana Academy</div>
+            <p style="font-size: 0.95rem; color: #334155;">Delivered voiceovers for interactive digital learning modules and educational onboarding.</p>
+          </div>
+
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Children’s Animation Voice Actor</h3>
+              <span class="exp-date-tag">Jun 2025</span>
+            </div>
+            <div class="exp-company-sub">Animation Studio Project</div>
+            <p style="font-size: 0.95rem; color: #334155;">Voiced animated children’s characters with expressive modulation and engaging tonality.</p>
+          </div>
+
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Commercial Voice Over</h3>
+              <span class="exp-date-tag">2024 — 2025</span>
+            </div>
+            <div class="exp-company-sub">FREZHCHICK, JAGOTI LMS & Belawa Phone</div>
+            <p style="font-size: 0.95rem; color: #334155;">Voiced digital commercial advertisements, e-learning explainers, and product launches.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Content Creation -->
+      <div class="tab-pane" id="tab-creative" style="display: none;">
+        <div class="exp-cards-grid">
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Spokesperson & Narrator</h3>
+              <span class="exp-date-tag">Jul 2025</span>
+            </div>
+            <div class="exp-company-sub">PT KitaAnter Teknologi Indonesia</div>
+            <p style="font-size: 0.95rem; color: #334155;">Official corporate spokesperson, hosting educational video content and service features.</p>
+          </div>
+
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Creative Talent & Video Editor</h3>
+              <span class="exp-date-tag">Jan 2026</span>
+            </div>
+            <div class="exp-company-sub">@BDGFOLK</div>
+            <p style="font-size: 0.95rem; color: #334155;">Scriptwriter, on-screen talent, and video editor for lifestyle and cultural media in Bandung.</p>
+          </div>
+
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Content Creator & Marketing Specialist</h3>
+              <span class="exp-date-tag">Oct 2024</span>
+            </div>
+            <div class="exp-company-sub">HelPhin Indonesia</div>
+            <p style="font-size: 0.95rem; color: #334155;">Developed social media strategies, produced viral educational reels, and managed campaigns.</p>
+          </div>
+
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Field Marketing Staff</h3>
+              <span class="exp-date-tag">May 2026</span>
+            </div>
+            <div class="exp-company-sub">BFI Finance</div>
+            <p style="font-size: 0.95rem; color: #334155;">Executed field marketing campaigns, client engagement, and financial services education.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Organization -->
+      <div class="tab-pane" id="tab-organisasi" style="display: none;">
+        <div class="exp-cards-grid">
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Event Coordinator</h3>
+              <span class="exp-date-tag">May – Sep 2025</span>
+            </div>
+            <div class="exp-company-sub">Hello World 2025 — HIMA S1 Informatika</div>
+            <p style="font-size: 0.95rem; color: #334155;">Led the overall coordination and execution of the orientation event for hundreds of freshmen.</p>
+          </div>
+
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Public Relations Committee Leader</h3>
+              <span class="exp-date-tag">2024 & 2025</span>
+            </div>
+            <div class="exp-company-sub">CARNIVAL 2024 & 2025</div>
+            <p style="font-size: 0.95rem; color: #334155;">Directed the PR division, managed media partnerships, and oversaw external communications.</p>
+          </div>
+
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Master of Ceremony & Event Staff</h3>
+              <span class="exp-date-tag">Dec 2024 – Jan 2025</span>
+            </div>
+            <div class="exp-company-sub">One Fine Day 2024</div>
+            <p style="font-size: 0.95rem; color: #334155;">Hosted main stage proceedings as primary MC and managed the real-time event rundown.</p>
+          </div>
+
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Managerial Intern (Valorant)</h3>
+              <span class="exp-date-tag">Oct 2024</span>
+            </div>
+            <div class="exp-company-sub">YOUNGERS FIA Esports</div>
+            <p style="font-size: 0.95rem; color: #334155;">Managed athlete operations, scrimmage schedules, performance tracking, and tournaments.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Leadership -->
+      <div class="tab-pane" id="tab-leader" style="display: none;">
+        <div class="exp-cards-grid">
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Head of Student Affairs (KMS)</h3>
+              <span class="exp-date-tag">Mar 2025 — Present</span>
+            </div>
+            <div class="exp-company-sub">HIMA S1 Informatika Telkom University</div>
+            <p style="font-size: 0.95rem; color: #334155;">Headed the Student Affairs division formulating student advocacy and talent development initiatives.</p>
+          </div>
+
+          <div class="exp-item-card">
+            <div class="exp-item-top">
+              <h3 class="exp-role-title">Mahasiswa '23 of The Year</h3>
+              <span class="exp-date-tag">2024 & 2025</span>
+            </div>
+            <div class="exp-company-sub">HIMA S1 Informatika Telkom University</div>
+            <p style="font-size: 0.95rem; color: #334155;">Awarded highest honour for outstanding academic excellence, leadership, and community service.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ACADEMIC & RESEARCH PROJECTS (15 COMPLETE PROJECTS)
+       ========================================================================== -->
+  <section id="projects">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="section-badge-pill">★ REPOSITORIES ★</div>
+        <h2 class="section-title">15 Academic Projects</h2>
+        <p class="section-subtitle">Comprehensive machine learning, network benchmarks, digital forensics, and software engineering works.</p>
+      </div>
+
+      <!-- Category Filter Bar -->
+      <div class="projects-filter-bar" id="projectsFilterBar">
+        <button class="proj-filter-pill active" data-filter="all">★ All (15)</button>
+        <button class="proj-filter-pill" data-filter="ai">🤖 AI & Deep Learning (6)</button>
+        <button class="proj-filter-pill" data-filter="systems">⚡ Systems & Security (5)</button>
+        <button class="proj-filter-pill" data-filter="product">🎨 UI/UX & Products (4)</button>
+      </div>
+
+      <div class="projects-3col-grid" id="projectsGrid">
+        <!-- 1 -->
+        <div class="proj-folder-card" data-proj-cat="ai">
+          <div>
+            <span class="proj-cat-badge">MACHINE LEARNING</span>
+            <h3 class="proj-heading">Medical Diabetes Prediction</h3>
+            <p class="proj-desc-text">Predictive machine learning models trained on medical patient parameters with high diagnostic accuracy.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">Python</span>
+            <span class="proj-tag-item">Scikit-Learn</span>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="proj-folder-card" data-proj-cat="systems">
+          <div>
+            <span class="proj-cat-badge">NETWORKS</span>
+            <h3 class="proj-heading">TCP vs UDP Proxy Benchmark</h3>
+            <p class="proj-desc-text">Comparative benchmark analyzing throughput, packet loss, and round-trip latency in proxy-based architectures.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">TCP/UDP</span>
+            <span class="proj-tag-item">Proxy</span>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="proj-folder-card" data-proj-cat="systems">
+          <div>
+            <span class="proj-cat-badge">IOT & FORECASTING</span>
+            <h3 class="proj-heading">HydroWatch Flood System</h3>
+            <p class="proj-desc-text">Real-time river level & precipitation telemetry system with integrated early flood warning algorithms.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">IoT</span>
+            <span class="proj-tag-item">Predictive Analytics</span>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="proj-folder-card" data-proj-cat="ai">
+          <div>
+            <span class="proj-cat-badge">COMPUTER VISION</span>
+            <h3 class="proj-heading">Cat Detection CNN Model</h3>
+            <p class="proj-desc-text">Deep learning CNN image classifier designed and trained for automated real-time feline identification.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">CNN</span>
+            <span class="proj-tag-item">TensorFlow</span>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="proj-folder-card" data-proj-cat="systems">
+          <div>
+            <span class="proj-cat-badge">CYBER SECURITY</span>
+            <h3 class="proj-heading">Data Leakage Digital Forensics</h3>
+            <p class="proj-desc-text">Forensic investigation analyzing enterprise memory dumps, packet captures, and server artifact traces.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">Digital Forensics</span>
+            <span class="proj-tag-item">Incident Response</span>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="proj-folder-card" data-proj-cat="product">
+          <div>
+            <span class="proj-cat-badge">UI/UX DESIGN</span>
+            <h3 class="proj-heading">Femina Care Mobile App</h3>
+            <p class="proj-desc-text">User-centered mobile platform prototype for confidential women’s health consultations and tracking.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">Figma</span>
+            <span class="proj-tag-item">UX Research</span>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="proj-folder-card" data-proj-cat="ai">
+          <div>
+            <span class="proj-cat-badge">FUZZY LOGIC</span>
+            <h3 class="proj-heading">Mood: Sleep Quality & Stress</h3>
+            <p class="proj-desc-text">Fuzzy Inference System (Mamdani & Sugeno) forecasting daily emotional valence based on sleep and stress inputs.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">Fuzzy Logic</span>
+            <span class="proj-tag-item">MATLAB</span>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="proj-folder-card" data-proj-cat="ai">
+          <div>
+            <span class="proj-cat-badge">FUZZY LOGIC</span>
+            <h3 class="proj-heading">Mood: Sleep & Social Media</h3>
+            <p class="proj-desc-text">Fuzzy rule-based analytics modeling the psychological impact of daily screen time and sleep variance.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">FIS</span>
+            <span class="proj-tag-item">Behavioral AI</span>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="proj-folder-card" data-proj-cat="product">
+          <div>
+            <span class="proj-cat-badge">UX EVALUATION</span>
+            <h3 class="proj-heading">Telkom University LMS UX</h3>
+            <p class="proj-desc-text">Comprehensive usability audit of Telkom University's online LMS using System Usability Scale (SUS) benchmarks.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">SUS Scale</span>
+            <span class="proj-tag-item">HCI</span>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="proj-folder-card" data-proj-cat="systems">
+          <div>
+            <span class="proj-cat-badge">SOFTWARE ENG</span>
+            <h3 class="proj-heading">Student Task Management (SAMS)</h3>
+            <p class="proj-desc-text">Web application for structured academic project task orchestration, priority queues, and deadline tracking.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">Web App</span>
+            <span class="proj-tag-item">Task Tracker</span>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="proj-folder-card" data-proj-cat="ai">
+          <div>
+            <span class="proj-cat-badge">GAME ANALYTICS</span>
+            <h3 class="proj-heading">Valorant Economy Analysis</h3>
+            <p class="proj-desc-text">Data modeling of tactical in-game economy, credit optimization decisions, and round win probability.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">Data Analytics</span>
+            <span class="proj-tag-item">Strategy</span>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="proj-folder-card" data-proj-cat="systems">
+          <div>
+            <span class="proj-cat-badge">DATABASE</span>
+            <h3 class="proj-heading">Query Indexing Performance</h3>
+            <p class="proj-desc-text">Empirical query latency comparison between B-Tree indexed structures and non-indexed sequential database scans.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">SQL</span>
+            <span class="proj-tag-item">Query Indexing</span>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="proj-folder-card" data-proj-cat="product">
+          <div>
+            <span class="proj-cat-badge">FULLSTACK</span>
+            <h3 class="proj-heading">CineMagz: Movie Platform</h3>
+            <p class="proj-desc-text">Interactive movie and series discovery platform featuring REST API integration and review curation.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">REST API</span>
+            <span class="proj-tag-item">Fullstack</span>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="proj-folder-card" data-proj-cat="product">
+          <div>
+            <span class="proj-cat-badge">GOVTECH & QA</span>
+            <h3 class="proj-heading">Diskominfo West Java UI/Testing</h3>
+            <p class="proj-desc-text">Heuristic usability testing and interface optimization analysis for West Java public digital services.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">QA Testing</span>
+            <span class="proj-tag-item">GovTech</span>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="proj-folder-card" data-proj-cat="ai">
+          <div>
+            <span class="proj-cat-badge">NLP & DEEP LEARNING</span>
+            <h3 class="proj-heading">Cyberbullying CNN-BiLSTM</h3>
+            <p class="proj-desc-text">Hybrid neural network architecture for automated detection of abusive text across Indonesian social platforms.</p>
+          </div>
+          <div class="proj-tags-list">
+            <span class="proj-tag-item">NLP</span>
+            <span class="proj-tag-item">CNN-BiLSTM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- QR Code Banner -->
+      <div class="qr-full-banner">
+        <div>
+          <h3 style="font-family: var(--font-pixel); font-size: 1.6rem; margin-bottom: 0.4rem;">Scan Full Project Repository</h3>
+          <p style="font-family: var(--font-tech); font-weight: 600; font-size: 1.05rem;">Scan or click the QR code to open source code repositories and technical reports.</p>
+        </div>
+        <div class="qr-box-inner" data-zoom-src="assets/Projects/projects-qr.png" data-zoom-cap="Academic Projects Full QR Code">
+          <img src="assets/Projects/projects-qr.png" alt="Projects QR Code">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       GALLERY (COMPACT POLAROIDS — 3 COLUMNS, SMALLER IMAGES)
+       ========================================================================== -->
+  <section id="gallery">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="section-badge-pill">★ PHOTO LOGS ★</div>
+        <h2 class="section-title">Gallery & Highlights</h2>
+        <p class="section-subtitle">Memorable awards, leadership milestones, and campus community snapshots.</p>
+      </div>
+
+      <div class="gallery-polaroid-grid">
+        <!-- 1. Award Ceremony Year 1 -->
+        <div class="polaroid-card" data-zoom-src="assets/Gallery/19c957bb-cf51-4082-ba58-9a5ce7b8476c.png" data-zoom-cap="Mahasiswa '23 of The Year 2024 — Official 1st Year Plaque Presentation">
+          <div class="polaroid-img-box">
+            <img src="assets/Gallery/19c957bb-cf51-4082-ba58-9a5ce7b8476c.png" alt="Award Ceremony Year 1">
+          </div>
+          <h3 class="polaroid-caption">Award Ceremony (Year 1)</h3>
+          <p class="polaroid-sub">1st Year Mahasiswa '23 of The Year official presentation ceremony (2024).</p>
+        </div>
+
+        <!-- 2. Award Plaque Year 1 -->
+        <div class="polaroid-card" data-zoom-src="assets/Gallery/70862c5f-9da6-48c4-afaa-e9fce549f37f.png" data-zoom-cap="Official Award Plaque — Mahasiswa '23 of The Year (22 December 2024)">
+          <div class="polaroid-img-box">
+            <img src="assets/Gallery/70862c5f-9da6-48c4-afaa-e9fce549f37f.png" alt="Award Plaque Year 1">
+          </div>
+          <h3 class="polaroid-caption">Award Plaque (Year 1)</h3>
+          <p class="polaroid-sub">Official 1st year plaque: Mahasiswa '23 of The Year (22 December 2024).</p>
+        </div>
+
+        <!-- 3. Award Ceremony Year 2 -->
+        <div class="polaroid-card" data-zoom-src="assets/Gallery/mahasiswa-of-year-2025-ceremony.jpg" data-zoom-cap="Mahasiswa '23 of The Year 2025 — Official 2nd Year Presentation Ceremony">
+          <div class="polaroid-img-box">
+            <img src="assets/Gallery/mahasiswa-of-year-2025-ceremony.jpg" alt="Award Ceremony Year 2">
+          </div>
+          <h3 class="polaroid-caption">Award Ceremony (Year 2)</h3>
+          <p class="polaroid-sub">Consecutive 2nd year presentation ceremony: Mahasiswa '23 of The Year (2025).</p>
+        </div>
+
+        <!-- 4. Award Plaque Year 2 -->
+        <div class="polaroid-card" data-zoom-src="assets/Gallery/mahasiswa-of-year-2025-plakat.jpg" data-zoom-cap="Official Award Plaque — Mahasiswa '23 of The Year (21 December 2025)">
+          <div class="polaroid-img-box">
+            <img src="assets/Gallery/mahasiswa-of-year-2025-plakat.jpg" alt="Award Plaque Year 2">
+          </div>
+          <h3 class="polaroid-caption">Award Plaque (Year 2)</h3>
+          <p class="polaroid-sub">Official 2nd year plaque: Mahasiswa '23 of The Year (21 December 2025).</p>
+        </div>
+
+        <!-- 5. Diskominfo Jabar Internship -->
+        <div class="polaroid-card" data-zoom-src="assets/Gallery/diskominfo-jabar-internship.jpg" data-zoom-cap="Diskominfo Jabar Internship — Public Relations & IT Operations">
+          <div class="polaroid-img-box">
+            <img src="assets/Gallery/diskominfo-jabar-internship.jpg" alt="Diskominfo Jabar Internship">
+          </div>
+          <h3 class="polaroid-caption">Diskominfo Jabar Intern</h3>
+          <p class="polaroid-sub">Professional internship at Dinas Komunikasi dan Informatika Jawa Barat.</p>
+        </div>
+
+        <!-- 6. Diskominfo Mentorship & Supervisors -->
+        <div class="polaroid-card" data-zoom-src="assets/Gallery/seminar-proposal-aptika.jpg" data-zoom-cap="Diskominfo Jabar (Bidang Aptika) — Yukie with Internship Supervisors & Mentors">
+          <div class="polaroid-img-box">
+            <img src="assets/Gallery/seminar-proposal-aptika.jpg" alt="Diskominfo Aptika Mentors">
+          </div>
+          <h3 class="polaroid-caption">Diskominfo Mentorship</h3>
+          <p class="polaroid-sub">Yukie with internship supervisors & mentors at Diskominfo Jabar (Bidang Aptika).</p>
+        </div>
+
+        <!-- 7. Seminar Proposal Defense -->
+        <div class="polaroid-card" data-zoom-src="assets/Gallery/seminar-proposal-defense.jpg" data-zoom-cap="Seminar Proposal Defense — Undergraduate Informatics Research at Telkom University">
+          <div class="polaroid-img-box">
+            <img src="assets/Gallery/seminar-proposal-defense.jpg" alt="Seminar Proposal Defense">
+          </div>
+          <h3 class="polaroid-caption">Seminar Proposal</h3>
+          <p class="polaroid-sub">Celebrating successful thesis proposal defense: Cyberbullying Detection.</p>
+        </div>
+
+        <!-- 7. Head of Student Affairs (KMS) -->
+        <div class="polaroid-card" data-zoom-src="assets/Gallery/0ad2422b-ec08-495d-9969-2bd43b325c4b.png" data-zoom-cap="Yukie Kiyoshi (Head of KMS Division) & Raihan Muhammad (Vice Head) BPH HIMA IF 2025">
+          <div class="polaroid-img-box">
+            <img src="assets/Gallery/0ad2422b-ec08-495d-9969-2bd43b325c4b.png" alt="Head of KMS Division">
+          </div>
+          <h3 class="polaroid-caption">Head of KMS Division</h3>
+          <p class="polaroid-sub">Yukie as Head of Student Affairs (KMS) with Vice Head, BPH HIMA IF 2025.</p>
+        </div>
+
+        <!-- 8. Student Affairs Team & Staff -->
+        <div class="polaroid-card" data-zoom-src="assets/Gallery/4cb09e0e-aeb7-4247-aeae-ea5eb609923d.png" data-zoom-cap="Badan Pengurus Harian HIMA IF 2025 (Kabinet Katalis) — Divisi Kemahasiswaan & Staff">
+          <div class="polaroid-img-box">
+            <img src="assets/Gallery/4cb09e0e-aeb7-4247-aeae-ea5eb609923d.png" alt="KMS Division Staff">
+          </div>
+          <h3 class="polaroid-caption">KMS Division & Staff</h3>
+          <p class="polaroid-sub">Yukie leading the full Student Affairs division staff, HIMA IF (Kabinet Katalis).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ALL 30 CERTIFICATES CAROUSEL (SMOOTH & COMPLETE)
+       ========================================================================== -->
+  <section id="certificates">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <div class="section-badge-pill">★ ALL 30 CREDENTIALS & CERTIFICATIONS ★</div>
+        <h2 class="section-title">All 30 Certifications</h2>
+        <p class="section-subtitle">Exhaustive verified archive of all 30 credentials across AI, Cloud, Leadership, Media, and Business. Click any certificate for high-res zoom.</p>
+      </div>
+
+      <div class="cert-quote-box">
+        "Continuous learning is the highest form of creative empowerment ✦"
+      </div>
+
+      <!-- Interactive Controls: Filter Pills, Search Bar, View Switcher & Live Counter -->
+      <div class="cert-controls-bar">
+        <div class="cert-search-row">
+          <input type="text" id="certSearchInput" class="cert-search-box" placeholder="🔍 Instant search all 30 certs (e.g. Azure, Python, ITB, Dart, PR, Excel, Award)...">
+          
+          <div class="cert-view-toggles">
+            <button class="view-switch-btn active" id="certGridViewBtn" title="Show all 30 in grid">▦ Show All Grid</button>
+            <button class="view-switch-btn" id="certCarouselViewBtn" title="Switch to slider carousel">🎞️ Slider</button>
+            <div class="cert-counter-badge" id="certCounter">Showing 30 of 30</div>
+          </div>
+        </div>
+
+        <div class="cert-filter-row">
+          <button class="cert-filter-pill active" data-filter="all">🌟 All (30)</button>
+          <button class="cert-filter-pill" data-filter="tech">🤖 AI & Tech (6)</button>
+          <button class="cert-filter-pill" data-filter="awards">🏆 Honors & Awards (4)</button>
+          <button class="cert-filter-pill" data-filter="pr">📢 PR & Leadership (10)</button>
+          <button class="cert-filter-pill" data-filter="business">💼 Business & Skills (10)</button>
+        </div>
+      </div>
+
+      <!-- Cert Display Track (Default: Responsive Grid Showing ALL 30 at Once!) -->
+      <div class="cert-carousel-container" id="certCarouselContainer">
+        <button class="jelly-round-btn yellow cert-nav-btn" id="certScrollPrev" title="Scroll Left" style="display: none;">◀</button>
+
+        <div class="cert-scroll-track grid-mode" id="certScrollTrack">
+          <!-- 1 -->
+          <div class="cert-item-card" data-category="tech" data-keywords="microsoft azure ai fundamentals certification 2026 cloud machine learning" data-zoom-src="assets/Certificates/azure-ai-fundamentals-cert-2026.jpg" data-zoom-cap="Microsoft Certified: Azure AI Fundamentals (Mar 2026)">
+            <img src="assets/Certificates/azure-ai-fundamentals-cert-2026.jpg" alt="Azure AI Fundamentals 2026">
+            <div class="cert-badge-tag tech">AI & Tech</div>
+            <div class="cert-hover-tag">Azure AI Fundamentals (2026)</div>
+          </div>
+
+          <!-- 2 -->
+          <div class="cert-item-card" data-category="tech" data-keywords="azure ai 900 preparation fundamentals microsoft cloud" data-zoom-src="assets/Certificates/azure-ai-900-cert.jpg" data-zoom-cap="Preparation Course for Azure AI Fundamentals (AI-900)">
+            <img src="assets/Certificates/azure-ai-900-cert.jpg" alt="Azure AI-900">
+            <div class="cert-badge-tag tech">AI & Tech</div>
+            <div class="cert-hover-tag">Azure AI-900 Prep</div>
+          </div>
+
+          <!-- 3 -->
+          <div class="cert-item-card" data-category="awards" data-keywords="arkavidia 10.0 itb uxvidia competition ui ux institute technology bandung" data-zoom-src="assets/Certificates/arkavidia-uxvidia-cert.jpg" data-zoom-cap="Participant of UXVidia Competition — Arkavidia 10.0 ITB">
+            <img src="assets/Certificates/arkavidia-uxvidia-cert.jpg" alt="Arkavidia UXVidia">
+            <div class="cert-badge-tag awards">Award & UX</div>
+            <div class="cert-hover-tag">Arkavidia 10.0 UXVidia ITB</div>
+          </div>
+
+          <!-- 4 -->
+          <div class="cert-item-card" data-category="tech" data-keywords="ai for oceans code.org machine learning artificial intelligence hour of code" data-zoom-src="assets/Certificates/ai-oceans-cert.jpg" data-zoom-cap="AI for Oceans — Code.org Certification">
+            <img src="assets/Certificates/ai-oceans-cert.jpg" alt="AI for Oceans">
+            <div class="cert-badge-tag tech">AI & Tech</div>
+            <div class="cert-hover-tag">AI for Oceans (Code.org)</div>
+          </div>
+
+          <!-- 5 -->
+          <div class="cert-item-card" data-category="business" data-keywords="english proficiency test eprt telkom university language center" data-zoom-src="assets/Certificates/362e1fbd-f435-4cb0-9dfe-49baf96d6ffb.png" data-zoom-cap="English Proficiency Test (EPRT)">
+            <img src="assets/Certificates/362e1fbd-f435-4cb0-9dfe-49baf96d6ffb.png" alt="English EPRT">
+            <div class="cert-badge-tag business">Language</div>
+            <div class="cert-hover-tag">English Proficiency (EPRT)</div>
+          </div>
+
+          <!-- 6 -->
+          <div class="cert-item-card" data-category="tech" data-keywords="dart programming dicoding mobile flutter development" data-zoom-src="assets/Certificates/3be8d6b5-9ffc-4fb8-a43a-56b3c5cca74f.png" data-zoom-cap="Getting Started Programming with Dart">
+            <img src="assets/Certificates/3be8d6b5-9ffc-4fb8-a43a-56b3c5cca74f.png" alt="Dart Programming">
+            <div class="cert-badge-tag tech">AI & Tech</div>
+            <div class="cert-hover-tag">Dart Programming</div>
+          </div>
+
+          <!-- 7 -->
+          <div class="cert-item-card" data-category="business" data-keywords="investment risk management finance skill academy" data-zoom-src="assets/Certificates/45720ac4-b75c-4333-b986-f844a13b5b69.png" data-zoom-cap="Investment Risk Management">
+            <img src="assets/Certificates/45720ac4-b75c-4333-b986-f844a13b5b69.png" alt="Investment Risk">
+            <div class="cert-badge-tag business">Business</div>
+            <div class="cert-hover-tag">Investment Risk Mgmt</div>
+          </div>
+
+          <!-- 8 -->
+          <div class="cert-item-card" data-category="business" data-keywords="business analysis process management coursera project" data-zoom-src="assets/Certificates/759252c2-f64f-4d96-b3a3-be139c20060a.png" data-zoom-cap="Business Analysis & Process Management">
+            <img src="assets/Certificates/759252c2-f64f-4d96-b3a3-be139c20060a.png" alt="Business Analysis">
+            <div class="cert-badge-tag business">Business</div>
+            <div class="cert-hover-tag">Business Analysis & Process</div>
+          </div>
+
+          <!-- 9 -->
+          <div class="cert-item-card" data-category="pr" data-keywords="lead informatics 2024 hima s1 informatika telkom university" data-zoom-src="assets/Certificates/7a1dd8de-1d46-483a-a5bf-799a4c985666.png" data-zoom-cap="Lead Informatics 2024">
+            <img src="assets/Certificates/7a1dd8de-1d46-483a-a5bf-799a4c985666.png" alt="Lead Informatics">
+            <div class="cert-badge-tag pr">PR & Lead</div>
+            <div class="cert-hover-tag">Lead Informatics 2024</div>
+          </div>
+
+          <!-- 10 -->
+          <div class="cert-item-card" data-category="business" data-keywords="korean language beginner kt&g sangsang univ culture" data-zoom-src="assets/Certificates/88d3e7a4-926a-4148-b0b0-f38af7afd37c.png" data-zoom-cap="Korean Language Beginner — KT&G SangSang">
+            <img src="assets/Certificates/88d3e7a4-926a-4148-b0b0-f38af7afd37c.png" alt="Korean Language">
+            <div class="cert-badge-tag business">Language</div>
+            <div class="cert-hover-tag">Korean Language Beginner</div>
+          </div>
+
+          <!-- 11 -->
+          <div class="cert-item-card" data-category="business" data-keywords="career preparation hrd kt&g sangsang human resources" data-zoom-src="assets/Certificates/89d55bbc-0f46-47df-a1e8-0cfe7fdb667f.png" data-zoom-cap="Career Preparation with HRD — KT&G SangSang">
+            <img src="assets/Certificates/89d55bbc-0f46-47df-a1e8-0cfe7fdb667f.png" alt="Career Preparation HRD">
+            <div class="cert-badge-tag business">Career</div>
+            <div class="cert-hover-tag">Career Prep with HRD</div>
+          </div>
+
+          <!-- 12 -->
+          <div class="cert-item-card" data-category="awards" data-keywords="mahasiswa of the year 2024 hima s1 informatika award recipient" data-zoom-src="assets/Certificates/9c9568fc-6610-4721-9230-468c55d43fcc.png" data-zoom-cap="Mahasiswa '23 Of The Year 2024 — HIMA S1 Informatika">
+            <img src="assets/Certificates/9c9568fc-6610-4721-9230-468c55d43fcc.png" alt="Award 2024">
+            <div class="cert-badge-tag awards">Award</div>
+            <div class="cert-hover-tag">Mahasiswa of The Year '24</div>
+          </div>
+
+          <!-- 13 -->
+          <div class="cert-item-card" data-category="pr" data-keywords="hello world 2024 leader public relations hima if" data-zoom-src="assets/Certificates/a9036210-9d56-4237-88d1-06f4c4fb669b.png" data-zoom-cap="Hello World 2024 Leader — HIMA S1 Informatika">
+            <img src="assets/Certificates/a9036210-9d56-4237-88d1-06f4c4fb669b.png" alt="Hello World 2024">
+            <div class="cert-badge-tag pr">PR & Lead</div>
+            <div class="cert-hover-tag">Hello World 2024 Leader</div>
+          </div>
+
+          <!-- 14 -->
+          <div class="cert-item-card" data-category="pr" data-keywords="kaderisasi fortran 2024 leadership training telkom" data-zoom-src="assets/Certificates/7451ab04-cc60-4298-ae93-464d4b4ac431.png" data-zoom-cap="Kaderisasi FORTRAN 2024">
+            <img src="assets/Certificates/7451ab04-cc60-4298-ae93-464d4b4ac431.png" alt="FORTRAN 2024">
+            <div class="cert-badge-tag pr">Leadership</div>
+            <div class="cert-hover-tag">Kaderisasi FORTRAN 2024</div>
+          </div>
+
+          <!-- 15 -->
+          <div class="cert-item-card" data-category="tech" data-keywords="wordpress web development cms website design" data-zoom-src="assets/Certificates/93c94709-446e-4848-a118-0f424c84a392.png" data-zoom-cap="Web Development with WordPress">
+            <img src="assets/Certificates/93c94709-446e-4848-a118-0f424c84a392.png" alt="WordPress Development">
+            <div class="cert-badge-tag tech">AI & Tech</div>
+            <div class="cert-hover-tag">WordPress Web Dev</div>
+          </div>
+
+          <!-- 16 -->
+          <div class="cert-item-card" data-category="business" data-keywords="microsoft excel mastery data analysis spreadsheet" data-zoom-src="assets/Certificates/9510c4ec-5258-4c8d-9f06-a55d26c96ff4.png" data-zoom-cap="Introduction to Microsoft Excel Mastery">
+            <img src="assets/Certificates/9510c4ec-5258-4c8d-9f06-a55d26c96ff4.png" alt="Microsoft Excel">
+            <div class="cert-badge-tag business">Skill</div>
+            <div class="cert-hover-tag">MS Excel Mastery</div>
+          </div>
+
+          <!-- 17 -->
+          <div class="cert-item-card" data-category="business" data-keywords="qwords digital marketing sprint social media branding" data-zoom-src="assets/Certificates/7d48f647-435a-46c0-a404-2c13712edb1e.png" data-zoom-cap="Qwords Digital Sprint: Digital Marketing">
+            <img src="assets/Certificates/7d48f647-435a-46c0-a404-2c13712edb1e.png" alt="Digital Marketing">
+            <div class="cert-badge-tag business">Marketing</div>
+            <div class="cert-hover-tag">Digital Marketing Sprint</div>
+          </div>
+
+          <!-- 18 -->
+          <div class="cert-item-card" data-category="pr" data-keywords="staff muda divisi kemahasiswaan kms hima s1 informatika" data-zoom-src="assets/Certificates/a07e4206-bc14-4ac4-b32d-deeebcdf6c42.png" data-zoom-cap="Staff Muda Divisi Kemahasiswaan (KMS) — HIMA IF">
+            <img src="assets/Certificates/a07e4206-bc14-4ac4-b32d-deeebcdf6c42.png" alt="KMS Staff">
+            <div class="cert-badge-tag pr">PR & Lead</div>
+            <div class="cert-hover-tag">KMS Division Staff</div>
+          </div>
+
+          <!-- 19 -->
+          <div class="cert-item-card" data-category="pr" data-keywords="viva la fia 2024 public relations committee staff" data-zoom-src="assets/Certificates/abbc6541-8419-4e6c-83c2-9dd47c479bca.png" data-zoom-cap="Public Relations Committee Staff — Viva La Fia 2024">
+            <img src="assets/Certificates/abbc6541-8419-4e6c-83c2-9dd47c479bca.png" alt="Viva La Fia">
+            <div class="cert-badge-tag pr">Public Relations</div>
+            <div class="cert-hover-tag">Viva La Fia 2024 PR Staff</div>
+          </div>
+
+          <!-- 20 -->
+          <div class="cert-item-card" data-category="pr" data-keywords="carnival 2024 public relations committee leader" data-zoom-src="assets/Certificates/bfc14e6b-f761-476e-8f32-bb1ebf0559e4.png" data-zoom-cap="Public Relations Committee Leader — CARNIVAL 2024">
+            <img src="assets/Certificates/bfc14e6b-f761-476e-8f32-bb1ebf0559e4.png" alt="CARNIVAL PR">
+            <div class="cert-badge-tag pr">Public Relations</div>
+            <div class="cert-hover-tag">CARNIVAL 2024 PR Leader</div>
+          </div>
+
+          <!-- 21 -->
+          <div class="cert-item-card" data-category="business" data-keywords="professional technical competency certification skills" data-zoom-src="assets/Certificates/02807d40-3231-4b93-9bcd-a47006887b38.png" data-zoom-cap="Professional Technical Competency Credential">
+            <img src="assets/Certificates/02807d40-3231-4b93-9bcd-a47006887b38.png" alt="Certification 21">
+            <div class="cert-badge-tag business">Competency</div>
+            <div class="cert-hover-tag">Technical Competency</div>
+          </div>
+
+          <!-- 22 -->
+          <div class="cert-item-card" data-category="awards" data-keywords="academic honors recognition telkom university excellence" data-zoom-src="assets/Certificates/11ddc6ab-a069-4c20-9e97-2055596eaee0.png" data-zoom-cap="Academic Honors Recognition">
+            <img src="assets/Certificates/11ddc6ab-a069-4c20-9e97-2055596eaee0.png" alt="Certification 22">
+            <div class="cert-badge-tag awards">Honors</div>
+            <div class="cert-hover-tag">Academic Honors</div>
+          </div>
+
+          <!-- 23 -->
+          <div class="cert-item-card" data-category="business" data-keywords="professional skill mastery workshop development" data-zoom-src="assets/Certificates/1723ad6f-1bae-4511-91a3-cff8eb729f07.png" data-zoom-cap="Professional Skill Workshop">
+            <img src="assets/Certificates/1723ad6f-1bae-4511-91a3-cff8eb729f07.png" alt="Certification 23">
+            <div class="cert-badge-tag business">Skill</div>
+            <div class="cert-hover-tag">Professional Workshop</div>
+          </div>
+
+          <!-- 24 -->
+          <div class="cert-item-card" data-category="business" data-keywords="technology symposium delegate credential conference" data-zoom-src="assets/Certificates/3332e6fe-2bc3-4c0e-8e74-70c385d45919.png" data-zoom-cap="Technology Symposium Credential">
+            <img src="assets/Certificates/3332e6fe-2bc3-4c0e-8e74-70c385d45919.png" alt="Certification 24">
+            <div class="cert-badge-tag business">Symposium</div>
+            <div class="cert-hover-tag">Technology Symposium</div>
+          </div>
+
+          <!-- 25 -->
+          <div class="cert-item-card" data-category="pr" data-keywords="youth leadership governance credential student council" data-zoom-src="assets/Certificates/cc0263fd-e676-4a7e-99b5-1c60aa5250f1.png" data-zoom-cap="Youth Leadership & Governance Credential">
+            <img src="assets/Certificates/cc0263fd-e676-4a7e-99b5-1c60aa5250f1.png" alt="Certification 25">
+            <div class="cert-badge-tag pr">Leadership</div>
+            <div class="cert-hover-tag">Youth Leadership Award</div>
+          </div>
+
+          <!-- 26 -->
+          <div class="cert-item-card" data-category="pr" data-keywords="public speaking communication mastery presentation emcee" data-zoom-src="assets/Certificates/d75369c2-e7ab-4c33-b4d8-80e891e0467b.png" data-zoom-cap="Public Speaking & Communication Mastery">
+            <img src="assets/Certificates/d75369c2-e7ab-4c33-b4d8-80e891e0467b.png" alt="Certification 26">
+            <div class="cert-badge-tag pr">Speaking & MC</div>
+            <div class="cert-hover-tag">Public Speaking Mastery</div>
+          </div>
+
+          <!-- 27 -->
+          <div class="cert-item-card" data-category="pr" data-keywords="event management logistics certification coordination" data-zoom-src="assets/Certificates/e344e136-b55f-463e-9770-1618d1dea5b8.png" data-zoom-cap="Event Management & Logistics Certification">
+            <img src="assets/Certificates/e344e136-b55f-463e-9770-1618d1dea5b8.png" alt="Certification 27">
+            <div class="cert-badge-tag pr">Event Mgmt</div>
+            <div class="cert-hover-tag">Event Management</div>
+          </div>
+
+          <!-- 28 -->
+          <div class="cert-item-card" data-category="pr" data-keywords="creative media storytelling production video audio" data-zoom-src="assets/Certificates/eb7fa300-de79-43d7-ae4c-4a9c1d8d967a.png" data-zoom-cap="Creative Storytelling & Media Production">
+            <img src="assets/Certificates/eb7fa300-de79-43d7-ae4c-4a9c1d8d967a.png" alt="Certification 28">
+            <div class="cert-badge-tag pr">Media</div>
+            <div class="cert-hover-tag">Creative Storytelling</div>
+          </div>
+
+          <!-- 29 -->
+          <div class="cert-item-card" data-category="awards" data-keywords="social community impact award community service volunteer" data-zoom-src="assets/Certificates/eecca2a2-3ff2-433c-88f1-51a75c997a22.png" data-zoom-cap="Social Community Impact Award">
+            <img src="assets/Certificates/eecca2a2-3ff2-433c-88f1-51a75c997a22.png" alt="Certification 29">
+            <div class="cert-badge-tag awards">Award</div>
+            <div class="cert-hover-tag">Community Impact Award</div>
+          </div>
+
+          <!-- 30 -->
+          <div class="cert-item-card" data-category="tech" data-keywords="national informatics symposium computational science computing" data-zoom-src="assets/Certificates/f1481f8a-3106-4f66-afb7-817da957378e.png" data-zoom-cap="National Informatics Symposium Credential">
+            <img src="assets/Certificates/f1481f8a-3106-4f66-afb7-817da957378e.png" alt="Certification 30">
+            <div class="cert-badge-tag tech">AI & Tech</div>
+            <div class="cert-hover-tag">Informatics Symposium</div>
+          </div>
+        </div>
+
+        <button class="jelly-round-btn yellow cert-nav-btn" id="certScrollNext" title="Scroll Right" style="display: none;">▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PORTFOLIO SECTION (UNIFIED QR)
+       ========================================================================== -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="about-panel" style="background: var(--yellow-light);">
+        <div class="section-badge-pill">★ CLOUD ARCHIVE ★</div>
+        <h2 class="section-title">Unified Portfolio</h2>
+        <p style="font-size: 1.15rem; font-family: var(--font-tech); font-weight: 600; margin-bottom: 2rem;">
+          Direct cloud folder to access Voice Over audio reels, video editing showreels, graphic design publications, and creative scripts.
+        </p>
+
+        <div style="display: flex; gap: 2rem; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+          <div>
+            <div class="speech-bubble" style="margin-bottom: 1.5rem;">
+              "listen to voice over reels & explore creative archives"
+            </div>
+            <div>
+              <a href="https://drive.google.com/drive/folders/15lLph05Sgvaihsx_NOExqJFq4V8pacdR?hl=id" target="_blank" rel="noopener" class="jelly-btn">
+                Open Google Drive Portfolio ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="qr-box-inner" data-zoom-src="assets/Portfolio/portfolio-qr.png" data-zoom-cap="Yukie Portfolio Full QR Code">
+            <img src="assets/Portfolio/portfolio-qr.png" alt="Portfolio QR Code">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SKILLS SECTION (EQUALIZER / BATTERY METERS)
+       ========================================================================== -->
+  <section id="skills">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="section-badge-pill">★ EQUALIZER ★</div>
+        <h2 class="section-title">Core Skills</h2>
+      </div>
+
+      <div class="skills-2col">
+        <div class="skills-box">
+          <h3>Soft Skills & Leadership</h3>
+          <div class="skill-meter-row">
+            <div class="skill-meter-label"><span>Public Relations</span><span>98%</span></div>
+            <div class="meter-track"><div class="meter-fill" style="width: 98%;"></div></div>
+          </div>
+          <div class="skill-meter-row">
+            <div class="skill-meter-label"><span>Communication & MC</span><span>98%</span></div>
+            <div class="meter-track"><div class="meter-fill" style="width: 98%;"></div></div>
+          </div>
+          <div class="skill-meter-row">
+            <div class="skill-meter-label"><span>Leadership & Governance</span><span>95%</span></div>
+            <div class="meter-track"><div class="meter-fill" style="width: 95%;"></div></div>
+          </div>
+          <div class="skill-meter-row">
+            <div class="skill-meter-label"><span>Teamwork & Collaboration</span><span>95%</span></div>
+            <div class="meter-track"><div class="meter-fill" style="width: 95%;"></div></div>
+          </div>
+          <div class="skill-meter-row">
+            <div class="skill-meter-label"><span>Problem Solving</span><span>92%</span></div>
+            <div class="meter-track"><div class="meter-fill" style="width: 92%;"></div></div>
+          </div>
+        </div>
+
+        <div class="skills-box">
+          <h3>Technical & Audio Artistry</h3>
+          <div class="skill-meter-row">
+            <div class="skill-meter-label"><span>Voice Over & Dubbing</span><span>96%</span></div>
+            <div class="meter-track"><div class="meter-fill" style="width: 96%; background: var(--sunny-yellow);"></div></div>
+          </div>
+          <div class="skill-meter-row">
+            <div class="skill-meter-label"><span>Content & Scriptwriting</span><span>94%</span></div>
+            <div class="meter-track"><div class="meter-fill" style="width: 94%; background: var(--sunny-yellow);"></div></div>
+          </div>
+          <div class="skill-meter-row">
+            <div class="skill-meter-label"><span>Video Editing (Premiere / CapCut)</span><span>90%</span></div>
+            <div class="meter-track"><div class="meter-fill" style="width: 90%; background: var(--sunny-yellow);"></div></div>
+          </div>
+          <div class="skill-meter-row">
+            <div class="skill-meter-label"><span>Programming (Python, SQL, Web)</span><span>88%</span></div>
+            <div class="meter-track"><div class="meter-fill" style="width: 88%; background: var(--sunny-yellow);"></div></div>
+          </div>
+          <div class="skill-meter-row">
+            <div class="skill-meter-label"><span>UI/UX Prototyping (Figma)</span><span>86%</span></div>
+            <div class="meter-track"><div class="meter-fill" style="width: 86%; background: var(--sunny-yellow);"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTACT SECTION
+       ========================================================================== -->
+  <section id="contact">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="section-badge-pill">★ INBOX ★</div>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Open for commercial voice over projects, creative content collaborations, or informatics inquiries.</p>
+      </div>
+
+      <div class="contact-4col">
+        <a href="mailto:yukiekiyoshi123@gmail.com?subject=Inquiry%20%2F%20Collaboration%20Opportunity%20-%20Yukie%20Kiyoshi&body=Hi%20Yukie%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect%20with%20you%20regarding%20an%20opportunity%20or%20project%20collaboration.%0A%0ALooking%20forward%20to%20hearing%20from%20you!%0A%0ABest%20regards%2C" class="contact-jelly-card" title="Compose Direct Email to Yukie">
+          <div class="contact-card-icon">✉️</div>
+          <div class="contact-card-title">DIRECT EMAIL</div>
+          <div class="contact-card-val">yukiekiyoshi123@gmail.com</div>
+        </a>
+
+        <a href="https://wa.me/6281280106134?text=Hi%20Yukie%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect%20regarding%20an%20opportunity!" target="_blank" rel="noopener" class="contact-jelly-card" title="Open Direct Chat on WhatsApp">
+          <div class="contact-card-icon">💬</div>
+          <div class="contact-card-title">WHATSAPP / PHONE</div>
+          <div class="contact-card-val">+62 812-8010-6134</div>
+        </a>
+
+        <a href="https://www.google.com/maps/search/?api=1&query=Bandung%2C+West+Java" target="_blank" rel="noopener" class="contact-jelly-card" title="Open Bandung, West Java on Google Maps">
+          <div class="contact-card-icon">📍</div>
+          <div class="contact-card-title">LOCATION BASE</div>
+          <div class="contact-card-val">Bandung, West Java, ID</div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/yukiekiyoshi/" target="_blank" rel="noopener" class="contact-jelly-card" title="Open Yukie's Official LinkedIn Profile">
+          <div class="contact-card-icon">🔗</div>
+          <div class="contact-card-title">LINKEDIN</div>
+          <div class="contact-card-val">linkedin.com/in/yukiekiyoshi</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      ★ YUKIE KIYOSHI ★ ALL RIGHTS RESERVED © 2026 ★ PERSONAL PORTFOLIO ★
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FULLSCREEN COMPLETE RESUME MODAL (100% EXHAUSTIVE CV CONTENT)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="resumeModalBackdrop">
+    <div class="y2k-retro-modal">
+      <div class="modal-title-bar">
+        <span>YUKIE_KIYOSHI_COMPLETE_RESUME.EXE</span>
+        <button class="jelly-round-btn red" id="resumeModalClose" style="width: 32px; height: 32px;">✕</button>
+      </div>
+      <div class="modal-body-scroll">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 0.5rem;">
+          <h2 style="font-family: var(--font-pixel); font-size: 1.6rem; color: #000;">YUKIE KIYOSHI</h2>
+          <span style="font-family: var(--font-bitmap); font-size: 1.25rem; font-weight: 700; color: var(--maroon-accent);">S1 Informatika • Telkom University</span>
+        </div>
+        
+        <p style="font-family: var(--font-bitmap); font-size: 1.25rem; margin-bottom: 1.25rem; color: #334155;">
+          Email: <a href="mailto:yukiekiyoshi123@gmail.com?subject=Inquiry%20%2F%20Collaboration%20Opportunity%20-%20Yukie%20Kiyoshi&body=Hi%20Yukie%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect%20with%20you%20regarding%20an%20opportunity%20or%20project%20collaboration.%0A%0ALooking%20forward%20to%20hearing%20from%20you!%0A%0ABest%20regards%2C" style="color: inherit; text-decoration: underline;">yukiekiyoshi123@gmail.com</a> | WhatsApp: <a href="https://wa.me/6281280106134?text=Hi%20Yukie%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect%20regarding%20an%20opportunity!" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">+62 812-8010-6134</a> | Location: <a href="https://www.google.com/maps/search/?api=1&query=Bandung%2C+West+Java" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Bandung, West Java</a> | LinkedIn: <a href="https://linkedin.com/in/yukiekiyoshi" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">linkedin.com/in/yukiekiyoshi</a>
+        </p>
+        
+        <!-- Direct Genuine Download Buttons -->
+        <div style="display: flex; gap: 0.75rem; margin-bottom: 1.75rem; flex-wrap: wrap;">
+          <a href="assets/CV/Yukie_Kiyoshi_CV.pdf" download="Yukie_Kiyoshi_CV.pdf" class="jelly-btn" style="padding: 0.45rem 1.25rem;">
+            Download Official CV (PDF) 📥
+          </a>
+          <a href="assets/CV/Yukie_Kiyoshi_CV.pdf" target="_blank" class="jelly-btn jelly-btn-yellow" style="padding: 0.45rem 1.25rem;">
+            Open PDF in Tab ↗
+          </a>
+        </div>
+
+        <!-- About Me -->
+        <div class="resume-section-heading">★ About Me</div>
+        <p style="line-height: 1.7; font-size: 0.98rem; color: #1e293b;">
+          I am a multifaceted individual with expertise in various fields, including programming, content creation, video editing, story writing, and dubbing. Additionally, I possess advanced proficiency in Microsoft Office. With this combination of skills, I am confident in my ability to contribute significantly to a variety of projects and work environments.
+        </p>
+
+        <!-- Education -->
+        <div class="resume-section-heading">★ Education</div>
+        <div class="resume-experience-item">
+          <div class="resume-exp-header">
+            <span class="resume-exp-role">S1 Informatika</span>
+            <span class="resume-exp-date">2023 — 2027</span>
+          </div>
+          <div class="resume-exp-company">Telkom University, Bandung</div>
+          <p style="font-size: 0.92rem; color: #475569;">Specialization in Artificial Intelligence, Software Engineering, and Computer Systems. Recipient of Mahasiswa '23 of The Year 2024 & 2025 honours.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header">
+            <span class="resume-exp-role">Students, Science and Biology</span>
+            <span class="resume-exp-date">2020 — 2023</span>
+          </div>
+          <div class="resume-exp-company">Senior High School 12 Bekasi (SMAN 12 Bekasi)</div>
+          <p style="font-size: 0.92rem; color: #475569;">Major in Natural Sciences and Biology. Vice President of Youth Red Cross (PMR) 2021–2022.</p>
+        </div>
+
+        <!-- Professional Experience: ALL 16 ROLES -->
+        <div class="resume-section-heading">★ Professional Experience (16 Roles)</div>
+        
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Field Marketing Staff</span><span class="resume-exp-date">May 2026</span></div>
+          <div class="resume-exp-company">BFI Finance</div>
+          <p style="font-size: 0.92rem; color: #475569;">Executing field marketing activations, direct customer engagement, and financial services education.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Voice Over Artist (App Notification)</span><span class="resume-exp-date">Feb 2026</span></div>
+          <div class="resume-exp-company">AyPay Mitra</div>
+          <p style="font-size: 0.92rem; color: #475569;">Voice talent for mobile app push audio notifications, system status alerts, and audio cues.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Creative Talent (Content Creator, Video Editor & Scriptwriter)</span><span class="resume-exp-date">Jan 2026</span></div>
+          <div class="resume-exp-company">@BDGFOLK</div>
+          <p style="font-size: 0.92rem; color: #475569;">Scriptwriting, on-camera talent host, and video editing for cultural and lifestyle media in Bandung.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Voice Over & Talent</span><span class="resume-exp-date">Jan 2026</span></div>
+          <div class="resume-exp-company">TRAVL</div>
+          <p style="font-size: 0.92rem; color: #475569;">Promotional voice actor and presenter for travel exploration campaigns.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Voice Over Artist</span><span class="resume-exp-date">Jan 2026</span></div>
+          <div class="resume-exp-company">Odesa Indonesia</div>
+          <p style="font-size: 0.92rem; color: #475569;">Narration for social community empowerment documentaries and rural welfare programs.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Voice Over Artist</span><span class="resume-exp-date">Nov 2025</span></div>
+          <div class="resume-exp-company">Hana Academy</div>
+          <p style="font-size: 0.92rem; color: #475569;">Educational voice narrator for interactive digital course modules and learning video packages.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Spokesperson & Content Narrator</span><span class="resume-exp-date">Jul 2025</span></div>
+          <div class="resume-exp-company">PT KitaAnter Teknologi Indonesia</div>
+          <p style="font-size: 0.92rem; color: #475569;">Corporate spokesperson and primary content narrator for logistics tech services and media campaigns.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Spokesperson</span><span class="resume-exp-date">Jul 2025</span></div>
+          <div class="resume-exp-company">KitaAnterID</div>
+          <p style="font-size: 0.92rem; color: #475569;">Brand spokesperson presenting digital app services and public company announcements.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Voice Over Artist (Children’s Animation Project)</span><span class="resume-exp-date">Jun 2025</span></div>
+          <div class="resume-exp-company">Children's Animation Studio</div>
+          <p style="font-size: 0.92rem; color: #475569;">Character voice actor providing cheerful, dynamic, and expressive voice dubbing.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Voice Over Artist</span><span class="resume-exp-date">May 2025</span></div>
+          <div class="resume-exp-company">PT Panca Kraft Pratama</div>
+          <p style="font-size: 0.92rem; color: #475569;">Commercial product voiceover and enterprise corporate presentation narration.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Voice Over Talent & Scriptwriter</span><span class="resume-exp-date">Mar 2025</span></div>
+          <div class="resume-exp-company">ERA Infinity</div>
+          <p style="font-size: 0.92rem; color: #475569;">Scriptwriting creative copies and voicing promotional brand advertisements.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Voice Over Artist</span><span class="resume-exp-date">Feb 2025</span></div>
+          <div class="resume-exp-company">FREZHCHICK (Larislokal)</div>
+          <p style="font-size: 0.92rem; color: #475569;">Voice talent for retail consumer promotions and digital media advertising.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Content Creator</span><span class="resume-exp-date">Oct 2024</span></div>
+          <div class="resume-exp-company">HelPhin.id</div>
+          <p style="font-size: 0.92rem; color: #475569;">Content production for short-form viral videos, digital storytelling, and brand assets.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Content Creator & Marketing Specialist</span><span class="resume-exp-date">Oct 2024</span></div>
+          <div class="resume-exp-company">HelPhin Indonesia</div>
+          <p style="font-size: 0.92rem; color: #475569;">Strategic social campaign development, audience engagement, and digital marketing workflows.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Voice Over Artist</span><span class="resume-exp-date">Oct 2024</span></div>
+          <div class="resume-exp-company">JAGOTI LMS</div>
+          <p style="font-size: 0.92rem; color: #475569;">Narration for learning management system explainers and instructional walkthroughs.</p>
+        </div>
+
+        <div class="resume-experience-item">
+          <div class="resume-exp-header"><span class="resume-exp-role">Voice Over Artist</span><span class="resume-exp-date">Mar 2024</span></div>
+          <div class="resume-exp-company">Belawa Phone</div>
+          <p style="font-size: 0.92rem; color: #475569;">Voiced mobile store promotions and commercial advertising audio.</p>
+        </div>
+
+        <!-- Organizational & Event Roles: ALL 9 ROLES -->
+        <div class="resume-section-heading">★ Organizational & Event Roles (9 Roles)</div>
+        <ul style="padding-left: 1.25rem; line-height: 1.8; font-size: 0.95rem; color: #1e293b;">
+          <li><strong>Event Coordinator</strong> — Hello World 2025 | May–Sep 2025 (HIMA S1 Informatika Telkom University)</li>
+          <li><strong>Public Relations Committee Leader</strong> — CARNIVAL 2025 | May 2025 (Telkom University)</li>
+          <li><strong>Public Relations Committee Staff</strong> — Viva La Fia 2025 | Jul 2025</li>
+          <li><strong>Managerial Intern (Valorant Division)</strong> — YOUNGERS FIA Esports | Oct 2024</li>
+          <li><strong>Event Staff & Master of Ceremony (MC)</strong> — One Fine Day 2024 | Dec 2024–Jan 2025</li>
+          <li><strong>Public Relations Committee Leader</strong> — CARNIVAL 2024 | Nov–Dec 2024</li>
+          <li><strong>Logistics Staff</strong> — Anniv Insight HIMA IF | Nov–Dec 2024</li>
+          <li><strong>Public Relations Committee Staff</strong> — Viva La Fia 2024 | Aug–Oct 2024</li>
+          <li><strong>Public Relations Committee Leader</strong> — Hello World 2024 | Jul–Sep 2024</li>
+        </ul>
+
+        <!-- Leadership & Recognition -->
+        <div class="resume-section-heading">★ Leadership & Recognition</div>
+        <ul style="padding-left: 1.25rem; line-height: 1.8; font-size: 0.95rem; color: #1e293b;">
+          <li><strong>Head of Student Affairs Division (KMS)</strong> — HIMA S1 Informatika | Mar 2025 — Present</li>
+          <li><strong>Mahasiswa '23 of The Year (2025)</strong> — HIMA S1 Informatika Telkom University</li>
+          <li><strong>Mahasiswa '23 of The Year (2024)</strong> — HIMA S1 Informatika | Dec 2024</li>
+          <li><strong>Junior Staff (KMS Division)</strong> — BPH HIMAIF | Oct 2024</li>
+          <li><strong>Vice President</strong> — PMR SMAN 12 Bekasi | 2021 — 2022</li>
+        </ul>
+
+        <!-- Research Project -->
+        <div class="resume-section-heading">★ Research Project</div>
+        <div style="font-size: 0.95rem; color: #1e293b; padding-left: 0.5rem;">
+          <strong>AI Ethics and Academic Integrity Among Indonesian University Students</strong> (Nov 2025)
+          <p style="font-size: 0.9rem; color: #475569;">Empirical investigation on generative AI utilization patterns, institutional policy adoption, and academic ethics compliance among higher education students in Indonesia.</p>
+        </div>
+
+        <!-- 15 Academic Projects -->
+        <div class="resume-section-heading">★ 15 Academic Projects</div>
+        <ol style="padding-left: 1.4rem; line-height: 1.8; font-size: 0.92rem; color: #1e293b;">
+          <li><strong>Medical Data–Driven Diabetes Prediction Using Machine Learning</strong> — Predictive model trained on clinical diagnostic data with optimal accuracy.</li>
+          <li><strong>Performance Analysis of TCP vs UDP in Proxy-Based Network Systems</strong> — Empirical network latency, throughput, and packet drop benchmark.</li>
+          <li><strong>HydroWatch: Flood Monitoring & Mitigation System</strong> — Telemetry monitoring system for precipitation and water levels with predictive warnings.</li>
+          <li><strong>Cat Detection System Using Convolutional Neural Network (CNN)</strong> — Deep learning computer vision image classification pipeline.</li>
+          <li><strong>Digital Forensics Analysis: Corporate Data Leakage Simulation</strong> — Forensic memory dump and network packet investigation.</li>
+          <li><strong>Femina Care: Mobile App for Women’s Health Awareness & Private Consultation</strong> — User-centered mobile health design and UI/UX prototype.</li>
+          <li><strong>Daily Mood Prediction Using Sleep Quality and Stress Level (Mamdani & Sugeno FIS)</strong> — Fuzzy inference system behavioral modeling.</li>
+          <li><strong>Daily Mood Prediction Using Sleep Quality and Social Media Usage (Mamdani & Sugeno FIS)</strong> — Screen time emotional correlation model.</li>
+          <li><strong>User Experience Analysis of Telkom University LMS</strong> — System Usability Scale (SUS) assessment and journey mapping.</li>
+          <li><strong>Student Task Management Software System (SAMS)</strong> — Web application for structured student academic productivity.</li>
+          <li><strong>Valorant Game Economy Analysis: Dynamic Player Resource Management</strong> — Tactical resource and credit allocation modeling.</li>
+          <li><strong>Query Performance Analysis With and Without Indexing</strong> — B-Tree relational database optimization benchmark.</li>
+          <li><strong>CineMagz: User-Driven Platform for Exploring Movies & Series</strong> — Fullstack platform with REST API integration.</li>
+          <li><strong>Diskominfo West Java UI/Testing & Service Optimization</strong> — Public digital portal accessibility and heuristic testing.</li>
+          <li><strong>Cyberbullying Detection Using CNN-BiLSTM</strong> — Hybrid deep learning architecture for social media hate speech classification.</li>
+        </ol>
+
+        <!-- Skills -->
+        <div class="resume-section-heading">★ Skills & Competencies</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.95rem;">
+          <div>
+            <strong>Technical Skills:</strong>
+            <ul style="padding-left: 1.25rem; margin-top: 0.25rem;">
+              <li>Programming (Python, Dart, SQL, Web)</li>
+              <li>Graphic Design (Figma, Canva)</li>
+              <li>Content Creation & Scriptwriting</li>
+              <li>Video Editing (Premiere Pro, CapCut)</li>
+              <li>Voice-Over & Dubbing Artistry</li>
+              <li>Microsoft Office 365 Advanced</li>
+            </ul>
+          </div>
+          <div>
+            <strong>Soft Skills:</strong>
+            <ul style="padding-left: 1.25rem; margin-top: 0.25rem;">
+              <li>Public Relations & External Affairs</li>
+              <li>Leadership & Team Governance</li>
+              <li>Public Speaking & Emcee</li>
+              <li>Teamwork & Collaboration</li>
+              <li>Analytical Problem-Solving</li>
+              <li>Languages: English & Indonesian</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Awarding -->
+        <div class="resume-section-heading">★ Honors & Awarding</div>
+        <ul style="padding-left: 1.25rem; line-height: 1.8; font-size: 0.95rem; color: #1e293b;">
+          <li><strong>Mahasiswa '23 Of The Year (2025)</strong> — HIMA S1 Informatika Telkom University (Recognized for outstanding academic, organizational & creative leadership)</li>
+          <li><strong>Mahasiswa '23 Of The Year (2024)</strong> — HIMA S1 Informatika Telkom University | Dec 2024</li>
+        </ul>
+
+        <!-- Complete List of ALL 30 Certifications -->
+        <div class="resume-section-heading">★ All 30 Certifications & Credentials (Complete Verified Archive)</div>
+        <div class="resume-certs-2col">
+          <div class="resume-cert-item">
+            <div class="rc-num">01.</div>
+            <div>
+              <strong>Microsoft Certified: Azure AI Fundamentals</strong><br>
+              <span class="rc-issuer">Microsoft • Mar 2026</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">02.</div>
+            <div>
+              <strong>Preparation Course for Azure AI Fundamentals (AI-900)</strong><br>
+              <span class="rc-issuer">Microsoft • Oct 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">03.</div>
+            <div>
+              <strong>Participant of UXVidia Competition — Arkavidia 10.0</strong><br>
+              <span class="rc-issuer">Institut Teknologi Bandung (ITB) • Mar 2026</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">04.</div>
+            <div>
+              <strong>AI for Oceans — Machine Learning Course</strong><br>
+              <span class="rc-issuer">Code.org / Hour of Code • Oct 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">05.</div>
+            <div>
+              <strong>English Proficiency Test (EPRT)</strong><br>
+              <span class="rc-issuer">Telkom University Language Center • Aug 2023</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">06.</div>
+            <div>
+              <strong>Getting Started Programming with Dart</strong><br>
+              <span class="rc-issuer">Dicoding Academy • Nov 2024</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">07.</div>
+            <div>
+              <strong>Investment Risk Management</strong><br>
+              <span class="rc-issuer">Skill Academy • Feb 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">08.</div>
+            <div>
+              <strong>Business Analysis & Process Management</strong><br>
+              <span class="rc-issuer">Coursera Project Network • Feb 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">09.</div>
+            <div>
+              <strong>Lead Informatics 2024</strong><br>
+              <span class="rc-issuer">HIMA S1 Informatika Telkom University • Dec 2024</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">10.</div>
+            <div>
+              <strong>Korean Language Beginner Course</strong><br>
+              <span class="rc-issuer">KT&G SangSang Univ • Apr 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">11.</div>
+            <div>
+              <strong>Career Preparation with HRD</strong><br>
+              <span class="rc-issuer">KT&G SangSang Univ • Apr 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">12.</div>
+            <div>
+              <strong>Mahasiswa '23 Of The Year Award 2024</strong><br>
+              <span class="rc-issuer">HIMA S1 Informatika • Dec 2024</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">13.</div>
+            <div>
+              <strong>Hello World 2024 Leader</strong><br>
+              <span class="rc-issuer">HIMA S1 Informatika Telkom University • Dec 2024</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">14.</div>
+            <div>
+              <strong>Kaderisasi FORTRAN 2024</strong><br>
+              <span class="rc-issuer">Telkom University • May 2024</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">15.</div>
+            <div>
+              <strong>Web Development with WordPress</strong><br>
+              <span class="rc-issuer">Digital Skills Academy • Feb 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">16.</div>
+            <div>
+              <strong>Introduction to Microsoft Excel Mastery</strong><br>
+              <span class="rc-issuer">Great Learning • Feb 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">17.</div>
+            <div>
+              <strong>Qwords Digital Sprint: Digital Marketing</strong><br>
+              <span class="rc-issuer">Qwords Cloud Web Hosting • May 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">18.</div>
+            <div>
+              <strong>Staff Muda Divisi Kemahasiswaan (KMS)</strong><br>
+              <span class="rc-issuer">HIMA S1 Informatika • Apr 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">19.</div>
+            <div>
+              <strong>Public Relations Committee Staff — Viva La Fia 2024</strong><br>
+              <span class="rc-issuer">Telkom University • Aug 2024</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">20.</div>
+            <div>
+              <strong>Public Relations Committee Leader — CARNIVAL 2024</strong><br>
+              <span class="rc-issuer">Telkom University • Dec 2024</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">21.</div>
+            <div>
+              <strong>Professional Technical Competency Credential</strong><br>
+              <span class="rc-issuer">Competency Training Institute • 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">22.</div>
+            <div>
+              <strong>Academic Honors & Excellence Recognition</strong><br>
+              <span class="rc-issuer">Telkom University • 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">23.</div>
+            <div>
+              <strong>Professional Skill Mastery Workshop</strong><br>
+              <span class="rc-issuer">Professional Skill Guild • 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">24.</div>
+            <div>
+              <strong>Technology Symposium Credential</strong><br>
+              <span class="rc-issuer">National Tech Consortium • 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">25.</div>
+            <div>
+              <strong>Youth Leadership & Governance Credential</strong><br>
+              <span class="rc-issuer">Youth Leadership Foundation • 2024</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">26.</div>
+            <div>
+              <strong>Public Speaking & Communication Mastery</strong><br>
+              <span class="rc-issuer">Public Speaking Academy • 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">27.</div>
+            <div>
+              <strong>Event Management & Logistics Certification</strong><br>
+              <span class="rc-issuer">Event Management Guild • 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">28.</div>
+            <div>
+              <strong>Creative Storytelling & Media Production</strong><br>
+              <span class="rc-issuer">Creative Media Network • 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">29.</div>
+            <div>
+              <strong>Social Community Impact Award</strong><br>
+              <span class="rc-issuer">Social Action Council • 2025</span>
+            </div>
+          </div>
+
+          <div class="resume-cert-item">
+            <div class="rc-num">30.</div>
+            <div>
+              <strong>National Informatics Symposium Credential</strong><br>
+              <span class="rc-issuer">Informatics Congress • 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolios & External Cloud Archives -->
+        <div class="resume-section-heading">★ Portfolios & Creative Archives</div>
+        <p style="font-size: 0.95rem; color: #1e293b; line-height: 1.8;">
+          • <strong>Unified Google Drive Creative Archive:</strong> <a href="https://drive.google.com/drive/folders/15lLph05Sgvaihsx_NOExqJFq4V8pacdR?hl=id" target="_blank" rel="noopener" style="color: #0284c7; text-decoration: underline; font-weight: 700;">drive.google.com/drive/folders/15lLph05Sgvaihsx_NOExqJFq4V8pacdR ↗</a><br>
+          • <strong>Personal Web App:</strong> <a href="https://yk-web.lovable.app/" target="_blank" rel="noopener" style="color: #0284c7; text-decoration: underline; font-weight: 700;">yk-web.lovable.app ↗</a><br>
+          • <strong>LinkedIn Profile:</strong> <a href="https://www.linkedin.com/in/yukiekiyoshi/" target="_blank" rel="noopener" style="color: #0284c7; text-decoration: underline; font-weight: 700;">linkedin.com/in/yukiekiyoshi ↗</a>
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       LIGHTBOX ZOOM MODAL
+       ========================================================================== -->
+  <div id="lightboxModal">
+    <div class="lightbox-frame">
+      <div style="width: 100%; display: flex; justify-content: flex-end; margin-bottom: 6px;">
+        <button class="jelly-round-btn red" id="lightboxCloseBtn" style="width: 32px; height: 32px;">✕</button>
+      </div>
+      <img src="" alt="Zoom" class="lightbox-img-view" id="lightboxViewImg">
+      <div class="lightbox-caption-text" id="lightboxViewCaption"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SIMULATED RETRO INCOMING CALL MODAL
+       ========================================================================== -->
+  <div id="phoneCallModal" class="phone-call-card-overlay">
+    <div class="phone-call-card">
+      <div class="call-card-top">
+        <div class="call-live-indicator"><span class="blink-dot"></span> CALL CONNECTED</div>
+        <button class="jelly-round-btn red" id="callCardCloseBtn" style="width: 30px; height: 30px; font-size: 0.85rem;">✕</button>
+      </div>
+      <div class="call-avatar-wrap">
+        <img src="assets/Hero-Photos/yukie_call_avatar.jpg" alt="Yukie Call Avatar" class="call-avatar-img">
+      </div>
+      <div class="call-contact-name">Yukie Kiyoshi</div>
+      <div class="call-contact-sub">+62 812-8010-6134 • Voice Talent & Dev</div>
+      <div class="call-speech-bubble">
+        "Hi there! ✦ Thanks for checking out my portfolio. Looking for a commercial voice over, media talent, or tech collaboration? Let's talk!"
+      </div>
+      <div class="call-actions-row">
+        <a href="https://wa.me/6281280106134?text=Hi%20Yukie%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect%20regarding%20an%20opportunity!" target="_blank" rel="noopener" class="jelly-btn" style="font-size: 0.85rem; padding: 0.4rem 0.95rem;">
+          💬 WhatsApp
+        </a>
+        <a href="https://www.linkedin.com/in/yukiekiyoshi/" target="_blank" rel="noopener" class="jelly-btn jelly-btn-yellow" style="font-size: 0.85rem; padding: 0.4rem 0.95rem;">
+          💼 LinkedIn
+        </a>
+        <button class="jelly-btn" id="callCardHangupBtn" style="background: #f87171; font-size: 0.85rem; padding: 0.4rem 0.95rem;">
+          📵 Hang Up
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Floating Interactive Keyboard Shortcuts Trigger -->
+  <div class="keyboard-shortcuts-pill" id="shortcutsPillBtn" title="View Keyboard Shortcuts (or press '?')">
+    <span>⌨️</span>
+    <span>SHORTCUTS</span>
+  </div>
+
+  <!-- Interactive Keyboard Shortcuts Dialog -->
+  <div class="shortcuts-dialog-overlay" id="shortcutsModal">
+    <div class="shortcuts-dialog-card">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h3 style="font-family:var(--font-pixel); font-size:1.15rem; margin:0;">✦ QUICK SHORTCUTS</h3>
+        <button class="jelly-round-btn red" id="shortcutsCloseBtn" style="width:28px; height:28px; font-size:0.8rem;">✕</button>
+      </div>
+      <p style="font-family:var(--font-tech); font-weight:600; font-size:0.85rem; color:#666; margin-top:0.45rem; margin-bottom:0.75rem;">
+        Navigate sections and trigger interactive features directly from your keyboard:
+      </p>
+      <div class="shortcuts-list">
+        <div class="shortcut-row"><span>Go to Hero</span><kbd class="shortcut-kbd">1</kbd></div>
+        <div class="shortcut-row"><span>Go to About Yukie</span><kbd class="shortcut-kbd">2</kbd></div>
+        <div class="shortcut-row"><span>Go to Experience</span><kbd class="shortcut-kbd">3</kbd></div>
+        <div class="shortcut-row"><span>Go to Projects</span><kbd class="shortcut-kbd">4</kbd></div>
+        <div class="shortcut-row"><span>Go to Certifications</span><kbd class="shortcut-kbd">5</kbd></div>
+        <div class="shortcut-row"><span>Go to Contact</span><kbd class="shortcut-kbd">6</kbd></div>
+        <div class="shortcut-row"><span>Cycle Camera Lens</span><kbd class="shortcut-kbd">F</kbd></div>
+        <div class="shortcut-row"><span>Snap Shutter Flash</span><kbd class="shortcut-kbd">S</kbd></div>
+        <div class="shortcut-row"><span>Simulate Phone Call</span><kbd class="shortcut-kbd">C</kbd></div>
+        <div class="shortcut-row"><span>Toggle Resume Modal</span><kbd class="shortcut-kbd">R</kbd></div>
+        <div class="shortcut-row"><span>Close Dialogs / Esc</span><kbd class="shortcut-kbd">ESC</kbd></div>
+      </div>
+      <button class="jelly-btn jelly-btn-yellow" id="shortcutsDismissBtn" style="width:100%; justify-content:center; padding:0.6rem; font-size:0.9rem;">
+        Got it! Let's Explore ✦
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating Interactive Back-to-Top Rocket Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" title="Back to Top">
+    <span class="back-to-top-icon">🚀</span>
+    <span class="back-to-top-label">TOP</span>
+  </button>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

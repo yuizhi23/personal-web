@@ -1539,77 +1539,78 @@ function initDesignShowcase() {
 }
 
 /* ==========================================================================
-   24. CONTENT CREATOR & REELS VIDEO PLAYER
+   24. CONTENT CREATOR & REELS VIDEO PLAYER (MOBILE-OPTIMIZED)
    ========================================================================== */
 function initContentCreatorReels() {
-  const videos = document.querySelectorAll('.reel-video');
   const reelCards = document.querySelectorAll('.reel-card');
+  if (!reelCards.length) return;
 
-  // Helper: set up and play a single video
-  function activateVideo(v, delay) {
-    setTimeout(() => {
-      v.muted = true;
-      v.defaultMuted = true;
-      v.playsInline = true;
-      v.loop = true;
+  // Prepare each video element with mobile inline playback attributes
+  reelCards.forEach(card => {
+    const v = card.querySelector('.reel-video');
+    if (!v) return;
 
-      const doPlay = () => {
-        v.play().then(() => {
-          v.closest('.reel-card')?.classList.add('is-playing');
-        }).catch(() => {
-          // Retry on first user gesture
-          document.addEventListener('pointerdown', () => {
-            v.play().catch(() => {});
-          }, { once: true });
-        });
-      };
+    v.muted = true;
+    v.defaultMuted = true;
+    v.playsInline = true;
+    v.loop = true;
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    v.setAttribute('disableRemotePlayback', '');
 
-      // Load the video first (preload="none" means it hasn't started yet)
-      if (v.readyState >= 2) {
-        doPlay();
-      } else {
-        v.addEventListener('canplay', doPlay, { once: true });
-        v.load(); // triggers network fetch
-      }
-    }, delay);
-  }
+    v.addEventListener('playing', () => card.classList.add('is-playing'));
+    v.addEventListener('pause', () => card.classList.remove('is-playing'));
+  });
 
-  // Use IntersectionObserver: only load videos when Reels section enters viewport
-  const section = document.getElementById('content-creator');
-  if (!section) return;
-
-  let activated = false;
-  const observer = new IntersectionObserver((entries) => {
+  // Per-card IntersectionObserver: only play videos actively in view (saves mobile GPU)
+  const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !activated) {
-        activated = true;
-        observer.disconnect();
+      const card = entry.target;
+      const v = card.querySelector('.reel-video');
+      if (!v) return;
 
-        // Stagger each video 180ms apart to avoid simultaneous load spike
-        videos.forEach((v, i) => activateVideo(v, i * 180));
+      if (entry.isIntersecting) {
+        // Start playback when card is visible on screen
+        const playPromise = v.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // If mobile browser requires touch gesture
+            const onFirstTouch = () => {
+              v.play().catch(() => {});
+              document.removeEventListener('touchstart', onFirstTouch);
+              document.removeEventListener('pointerdown', onFirstTouch);
+            };
+            document.addEventListener('touchstart', onFirstTouch, { once: true });
+            document.addEventListener('pointerdown', onFirstTouch, { once: true });
+          });
+        }
+      } else {
+        // Pause when scrolled off screen to keep mobile butter-smooth
+        if (!v.paused) {
+          v.pause();
+        }
       }
     });
-  }, { threshold: 0.15 });
+  }, {
+    threshold: 0.25,
+    rootMargin: '50px 0px 50px 0px'
+  });
 
-  observer.observe(section);
+  reelCards.forEach(card => videoObserver.observe(card));
 
-  // When tab becomes visible again, restart any paused reel
+  // Resume visible videos when tab / app becomes active again
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) {
-      videos.forEach(v => {
-        if (v.readyState >= 2 && v.paused) {
+      reelCards.forEach(card => {
+        const v = card.querySelector('.reel-video');
+        if (!v) return;
+        const rect = card.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        if (isVisible && v.paused) {
           v.play().catch(() => {});
         }
       });
     }
-  });
-
-  // Keep is-playing class in sync for all cards
-  reelCards.forEach(card => {
-    const video = card.querySelector('.reel-video');
-    if (!video) return;
-    video.addEventListener('play', () => card.classList.add('is-playing'));
-    video.addEventListener('pause', () => card.classList.remove('is-playing'));
   });
 }
 

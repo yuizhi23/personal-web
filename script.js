@@ -32,6 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypewriter();
   initStickerInteractions();
   initBrandMelody();
+  initSidebar();
+  initDesignShowcase();
+  initContentCreatorReels();
 });
 
 /* ==========================================================================
@@ -168,11 +171,33 @@ function initPhoneSimulator() {
     'Articulating Digital Innovation ✦'
   ];
 
-  // Ensure all looping videos autoplay muted smoothly
+  // Ensure all looping videos autoplay muted smoothly and immediately without freeze
   document.querySelectorAll('video[autoplay]').forEach(v => {
     v.muted = true;
-    const p = v.play();
-    if (p !== undefined) p.catch(() => {});
+    v.defaultMuted = true;
+    v.playsInline = true;
+    const tryPlay = () => {
+      const p = v.play();
+      if (p !== undefined) {
+        p.catch(() => {
+          const resume = () => {
+            v.play().catch(() => {});
+            window.removeEventListener('click', resume);
+            window.removeEventListener('touchstart', resume);
+            window.removeEventListener('scroll', resume);
+          };
+          window.addEventListener('click', resume, { once: true, passive: true });
+          window.addEventListener('touchstart', resume, { once: true, passive: true });
+          window.addEventListener('scroll', resume, { once: true, passive: true });
+        });
+      }
+    };
+    if (v.readyState >= 2) {
+      tryPlay();
+    } else {
+      v.addEventListener('loadeddata', tryPlay, { once: true });
+      tryPlay();
+    }
   });
 
   function triggerShutter() {
@@ -1257,4 +1282,341 @@ function initBrandMelody() {
     spawnConfetti(rect.left + rect.width / 2, rect.bottom + 10, 20, ['✦', '⭐', '✨', '💖']);
   });
 }
+
+/* ==========================================================================
+   22. RETRO NAVIGATION SIDEBAR DRAWER
+   ========================================================================== */
+function initSidebar() {
+  const toggleBtn = document.getElementById('sidebarToggleBtn');
+  const drawer = document.getElementById('sidebarDrawer');
+  const backdrop = document.getElementById('sidebarBackdrop');
+  const closeBtn = document.getElementById('sidebarCloseBtn');
+  const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+  if (!drawer || !backdrop) return;
+
+  function openSidebar() {
+    drawer.classList.add('active');
+    backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    sfxPop();
+  }
+
+  function closeSidebar() {
+    drawer.classList.remove('active');
+    backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+    sfxClick();
+  }
+
+  if (toggleBtn) toggleBtn.addEventListener('click', openSidebar);
+  if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+  if (backdrop) backdrop.addEventListener('click', closeSidebar);
+
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeSidebar();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('active')) {
+      closeSidebar();
+    }
+  });
+}
+
+/* ==========================================================================
+   23. GRAPHIC & VISUAL DESIGN SHOWCASE & MODAL INSPECTOR
+   ========================================================================== */
+const DESIGNS_DATA = [
+  {
+    title: 'BlueOS Concept',
+    badge: 'OS CONCEPT',
+    badgeClass: 'badge-cyan',
+    category: 'concept',
+    categoryLabel: 'Concept Art & OS Environment',
+    narrative: 'A tactile retro desktop operating system environment concept blending nostalgic pixel widgets with sleek translucent windows, modular docks, and creative desktop graphics.',
+    tools: 'Figma • Canva • Photoshop',
+    dimensions: '1587 × 2245 px • Hi-Res Art',
+    fullImg: 'assets/Designs/blueos.png'
+  },
+  {
+    title: 'MATCHAAA! Beverage',
+    badge: 'BRANDING',
+    badgeClass: 'badge-lime',
+    category: 'brand',
+    categoryLabel: 'Brand Identity & Packaging',
+    narrative: 'Vibrant pop-art brand identity and packaging layout featuring dynamic organic Japanese tea iconography, playful character mascots, and bold custom typography.',
+    tools: 'Canva • Illustrator • Photoshop',
+    dimensions: '1587 × 2245 px • Packaging Print',
+    fullImg: 'assets/Designs/MATCHAAA!.png'
+  },
+  {
+    title: 'KARINA Cyber-Y2K',
+    badge: 'CYBER ART',
+    badgeClass: 'badge-pink',
+    category: 'poster',
+    categoryLabel: 'Visual Art & Editorial Poster',
+    narrative: 'Futuristic cyber-editorial poster with liquid chrome typography, glitch halftones, neo-futuristic frames, and high-impact visual aesthetics inspired by aespa.',
+    tools: 'Canva • Photoshop • Visual Art',
+    dimensions: '1587 × 2245 px • Poster Print',
+    fullImg: 'assets/Designs/KARINA.png'
+  },
+  {
+    title: 'SZA Narrative Art',
+    badge: 'MUSIC ART',
+    badgeClass: 'badge-yellow',
+    category: 'poster',
+    categoryLabel: 'Music & Editorial Artwork',
+    narrative: 'Neo-soul music album poster harmonizing melancholic tones, rhythmic typography, and organic texture collage for evocative visual storytelling.',
+    tools: 'Canva • Photoshop • Collage',
+    dimensions: '1587 × 2245 px • Cover Art',
+    fullImg: 'assets/Designs/SZA.png'
+  },
+  {
+    title: 'Kim Dahyun Editorial',
+    badge: 'EDITORIAL',
+    badgeClass: 'badge-pink',
+    category: 'poster',
+    categoryLabel: 'Typography & Editorial Poster',
+    narrative: 'High-fashion graphic typography layout merging bold Swiss editorial principles with expressive pop visuals and clean grid balance.',
+    tools: 'Canva • Photoshop • Typography',
+    dimensions: '1587 × 2230 px • High-Res Layout',
+    fullImg: 'assets/Designs/KIM DAHYUN.png'
+  },
+  {
+    title: 'Emi Thasorn Cinema',
+    badge: 'CINEMATIC',
+    badgeClass: 'badge-cyan',
+    category: 'poster',
+    categoryLabel: 'Cinematic Editorial & Print',
+    narrative: 'Moody cinematic poster layout showcasing textured portraiture, vintage newsprint grain, and evocative typography with dramatic color grading.',
+    tools: 'Canva • Photoshop • Color Grading',
+    dimensions: '1587 × 2245 px • Movie Poster',
+    fullImg: 'assets/Designs/EMI THASORN.png'
+  },
+  {
+    title: 'Bonnie Graphic Art',
+    badge: 'CHARACTER',
+    badgeClass: 'badge-yellow',
+    category: 'poster',
+    categoryLabel: 'Character Concept & Street Art',
+    narrative: 'Distressed character portraiture featuring underground street art motifs, raw halftone textures, and neo-punk graphic typography.',
+    tools: 'Canva • Photoshop • Illustration',
+    dimensions: '1587 × 2245 px • Graphic Art',
+    fullImg: 'assets/Designs/BONNIE.png'
+  }
+];
+
+function initDesignShowcase() {
+  // Category Filter Pills
+  const filterPills = document.querySelectorAll('[data-design-filter]');
+  const designCards = document.querySelectorAll('.design-card');
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const filter = pill.getAttribute('data-design-filter');
+      filterPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      sfxPop();
+
+      designCards.forEach(card => {
+        const cat = card.getAttribute('data-design-cat');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Design Preview Inspector Modal
+  const modal = document.getElementById('designPreviewModal');
+  if (!modal) return;
+
+  const modalImg = document.getElementById('designModalImg');
+  const modalBadge = document.getElementById('designModalBadge');
+  const modalTitle = document.getElementById('designModalTitle');
+  const modalMeta = document.getElementById('designModalMeta');
+  const modalNarrative = document.getElementById('designModalNarrative');
+  const specCat = document.getElementById('designSpecCat');
+  const specTools = document.getElementById('designSpecTools');
+  const specDim = document.getElementById('designSpecDim');
+  const downloadBtn = document.getElementById('designModalDownloadBtn');
+  const counterEl = document.getElementById('designCounter');
+  const prevBtn = document.getElementById('designPrevBtn');
+  const nextBtn = document.getElementById('designNextBtn');
+  const closeBtn = document.getElementById('designModalCloseBtn');
+
+  let currentDesignIdx = 0;
+
+  function renderDesign(idx) {
+    if (idx < 0) idx = DESIGNS_DATA.length - 1;
+    if (idx >= DESIGNS_DATA.length) idx = 0;
+    currentDesignIdx = idx;
+
+    const data = DESIGNS_DATA[idx];
+    if (modalImg) modalImg.src = data.fullImg;
+    if (modalTitle) modalTitle.textContent = data.title;
+    if (modalBadge) {
+      modalBadge.textContent = data.badge;
+      modalBadge.className = `design-modal-badge ${data.badgeClass}`;
+    }
+    if (modalMeta) modalMeta.textContent = `2025 • ${data.categoryLabel}`;
+    if (modalNarrative) modalNarrative.textContent = data.narrative;
+    if (specCat) specCat.textContent = data.categoryLabel;
+    if (specTools) specTools.textContent = data.tools;
+    if (specDim) specDim.textContent = data.dimensions;
+    if (downloadBtn) {
+      downloadBtn.href = data.fullImg;
+      downloadBtn.download = `${data.title}.png`;
+    }
+    if (counterEl) counterEl.textContent = `${idx + 1} / ${DESIGNS_DATA.length}`;
+  }
+
+  function openModal(idx) {
+    renderDesign(idx);
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    sfxPop();
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    sfxClick();
+  }
+
+  // Open triggers
+  designCards.forEach((card, i) => {
+    card.addEventListener('click', () => {
+      openModal(i);
+    });
+  });
+
+  const previewButtons = document.querySelectorAll('.design-quick-preview-btn');
+  previewButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const idx = parseInt(btn.getAttribute('data-preview-idx') || '0', 10);
+      openModal(idx);
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      renderDesign(currentDesignIdx - 1);
+      sfxPop();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      renderDesign(currentDesignIdx + 1);
+      sfxPop();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('active')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') {
+      renderDesign(currentDesignIdx - 1);
+      sfxPop();
+    }
+    if (e.key === 'ArrowRight') {
+      renderDesign(currentDesignIdx + 1);
+      sfxPop();
+    }
+  });
+}
+
+/* ==========================================================================
+   24. CONTENT CREATOR & REELS VIDEO PLAYER
+   ========================================================================== */
+function initContentCreatorReels() {
+  const videos = document.querySelectorAll('.reel-video');
+  const reelCards = document.querySelectorAll('.reel-card');
+
+  // Helper: set up and play a single video
+  function activateVideo(v, delay) {
+    setTimeout(() => {
+      v.muted = true;
+      v.defaultMuted = true;
+      v.playsInline = true;
+      v.loop = true;
+
+      const doPlay = () => {
+        v.play().then(() => {
+          v.closest('.reel-card')?.classList.add('is-playing');
+        }).catch(() => {
+          // Retry on first user gesture
+          document.addEventListener('pointerdown', () => {
+            v.play().catch(() => {});
+          }, { once: true });
+        });
+      };
+
+      // Load the video first (preload="none" means it hasn't started yet)
+      if (v.readyState >= 2) {
+        doPlay();
+      } else {
+        v.addEventListener('canplay', doPlay, { once: true });
+        v.load(); // triggers network fetch
+      }
+    }, delay);
+  }
+
+  // Use IntersectionObserver: only load videos when Reels section enters viewport
+  const section = document.getElementById('content-creator');
+  if (!section) return;
+
+  let activated = false;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !activated) {
+        activated = true;
+        observer.disconnect();
+
+        // Stagger each video 180ms apart to avoid simultaneous load spike
+        videos.forEach((v, i) => activateVideo(v, i * 180));
+      }
+    });
+  }, { threshold: 0.15 });
+
+  observer.observe(section);
+
+  // When tab becomes visible again, restart any paused reel
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      videos.forEach(v => {
+        if (v.readyState >= 2 && v.paused) {
+          v.play().catch(() => {});
+        }
+      });
+    }
+  });
+
+  // Keep is-playing class in sync for all cards
+  reelCards.forEach(card => {
+    const video = card.querySelector('.reel-video');
+    if (!video) return;
+    video.addEventListener('play', () => card.classList.add('is-playing'));
+    video.addEventListener('pause', () => card.classList.remove('is-playing'));
+  });
+}
+
+
+
+
+
+
+
 

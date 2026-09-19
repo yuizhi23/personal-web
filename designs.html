@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Design Showcase ✦ Yukie Kiyoshi</title>
+  
+  <!-- SEO & OpenGraph -->
+  <meta name="description" content="Visual & Graphic Design Portfolio of Yukie Kiyoshi — Posters, UI/UX Operating System Concepts, Typography, and Product Branding.">
+  <meta property="og:title" content="Visual Design Showcase ✦ Yukie Kiyoshi">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Retro Halftone Overlay & Interactive Clickable Floating Stickers -->
+  <div class="halftone-bg"></div>
+  <div class="sticker-layer">
+    <div class="y2k-sticker" style="top: 14%; left: 2.5%; font-size: 2.6rem;" title="Click me!">🎨</div>
+    <div class="y2k-sticker" style="top: 32%; right: 3%; font-size: 2.4rem;" title="Click me!">✨</div>
+    <div class="y2k-sticker" style="top: 55%; left: 1.5%; font-size: 2.3rem;" title="Click me!">⭐</div>
+    <div class="y2k-sticker" style="top: 72%; right: 2.5%; font-size: 2.6rem;" title="Click me!">💖</div>
+  </div>
+
+  <!-- Top System Status Bar -->
+  <header class="system-status-bar">
+    <div class="status-left">
+      <span class="blink-dot"></span>
+      <span id="liveClock">10:55 AM</span>
+      <span style="color:#047857; font-weight:800;">[GALLERY MODE: ONLINE]</span>
+    </div>
+    <div class="status-right">
+      <span>📶 HI-RES ASSETS</span>
+      <span>VOL: 98%</span>
+      <span>🔋 [■■■■]</span>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand" title="Home">
+        <div class="nav-brand-bubble">YK ✦</div>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link-btn">Main Portfolio</a></li>
+        <li><a href="index.html#content-creator" class="nav-link-btn">Reels</a></li>
+        <li><a href="index.html#projects" class="nav-link-btn">Projects</a></li>
+        <li><a href="designs.html" class="nav-link-btn active">Design Gallery</a></li>
+        <li><a href="index.html#gallery" class="nav-link-btn">Photo Logs</a></li>
+        <li><a href="index.html#contact" class="nav-link-btn">Contact</a></li>
+      </ul>
+
+      <!-- Right Actions -->
+      <div class="nav-right-actions">
+        <button class="sfx-toggle-btn" id="sfxToggleBtn" title="Toggle Sound Effects">
+          SFX: ON
+        </button>
+        <a href="index.html#resumeModal" class="jelly-btn open-resume-btn" style="padding: 0.35rem 0.95rem; font-size: 0.82rem;">
+          CV
+        </a>
+        <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Open Navigation Sidebar" title="Quick Menu">
+          MENU
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar Drawer -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+  <aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Navigation Drawer">
+    <div class="sidebar-header">
+      <div class="sidebar-profile">
+        <img src="assets/Hero-Photos/yukie_call_avatar.jpg" alt="Yukie Kiyoshi" class="sidebar-avatar">
+        <div>
+          <div class="sidebar-name">YUKIE KIYOSHI ✦</div>
+          <div class="sidebar-tagline">AI Engineer & Creative</div>
+        </div>
+      </div>
+      <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Sidebar">CLOSE</button>
+    </div>
+
+    <div class="sidebar-body">
+      <div class="sidebar-section-label">DIRECTORY NAVIGATION</div>
+      <a href="index.html#hero" class="sidebar-link"><span>Main Portfolio Home</span></a>
+      <a href="index.html#about" class="sidebar-link"><span>About Yukie</span></a>
+      <a href="index.html#experience" class="sidebar-link"><span>Professional Experience</span></a>
+      <a href="index.html#content-creator" class="sidebar-link highlight-link" style="background: var(--sunny-yellow);">
+        <span>Content Creator & Reels</span>
+        <span class="sidebar-link-badge">VIDEO</span>
+      </a>
+      <a href="index.html#projects" class="sidebar-link"><span>Academic Projects</span></a>
+      <a href="designs.html" class="sidebar-link highlight-link">
+        <span>Visual & Graphic Designs</span>
+        <span class="sidebar-link-badge">ACTIVE</span>
+      </a>
+      <a href="index.html#gallery" class="sidebar-link"><span>Photo Logs & Milestones</span></a>
+      <a href="index.html#certificates" class="sidebar-link"><span>Certifications (33)</span></a>
+      <a href="index.html#contact" class="sidebar-link"><span>Contact & Socials</span></a>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-footer-row">
+        <span style="font-family:var(--font-pixel); font-size:0.75rem; color:#4b5563;">SYSTEM STATUS:</span>
+        <span style="font-family:var(--font-pixel); font-size:0.75rem; color:#047857;">ONLINE ●</span>
+      </div>
+      <div class="sidebar-footer-row">
+        <a href="index.html#resumeModal" class="jelly-btn open-resume-btn" style="flex:1; text-align:center; padding:0.35rem; font-size:0.8rem;">
+          View Full Resume
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Design Showcase Section -->
+  <main style="padding: 3.5rem 0 6rem 0;">
+    <div class="container">
+      
+      <!-- Studio Header Banner -->
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <div class="section-badge-pill">★ VISUAL DESIGN & CREATIVE LAB ★</div>
+        <h1 class="section-title" style="font-size: clamp(2.2rem, 5vw, 3.8rem); margin-top: 0.5rem;">Design Showcase</h1>
+        <p class="section-subtitle" style="max-width: 680px; margin: 0 auto;">
+          Curated collection of digital graphic posters, Swiss typography, visual identity packaging, and creative artwork crafted with Canva, Photoshop, Figma & Illustrator.
+        </p>
+        <div style="margin-top: 1.25rem;">
+          <a href="index.html" class="jelly-btn" style="padding: 0.35rem 1.05rem; font-size: 0.85rem;">
+            ← Return to Main Interactive Portfolio
+          </a>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="projects-filter-bar" id="designsFilterBar">
+        <button class="proj-filter-pill active" data-design-filter="all">★ All Works (7)</button>
+        <button class="proj-filter-pill" data-design-filter="poster">Posters & Editorial (4)</button>
+        <button class="proj-filter-pill" data-design-filter="concept">Concept Art & OS (1)</button>
+        <button class="proj-filter-pill" data-design-filter="brand">Brand & Packaging (2)</button>
+      </div>
+
+      <!-- Designs Grid -->
+      <div class="designs-grid" id="designsGrid">
+        <!-- 0. BlueOS Concept -->
+        <div class="design-card" data-design-cat="concept" data-design-idx="0">
+          <div class="design-preview-box">
+            <img src="assets/Designs/blueos_thumb.jpg" alt="BlueOS Desktop OS Concept" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="0">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-cyan">OS CONCEPT</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">BlueOS Concept</h3>
+            <p class="design-desc">Tactile retro desktop operating system environment blending pixel widgets with sleek translucent windows.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Figma</span>
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Photoshop</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1. MATCHAAA! Branding -->
+        <div class="design-card" data-design-cat="brand" data-design-idx="1">
+          <div class="design-preview-box">
+            <img src="assets/Designs/MATCHAAA!_thumb.jpg" alt="MATCHAAA! Artisan Drink Packaging" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="1">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-lime">BRANDING</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">MATCHAAA! Beverage</h3>
+            <p class="design-desc">Vibrant pop-art brand identity and packaging layout featuring dynamic organic Japanese tea iconography.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Illustrator</span>
+              <span class="design-tag-pill">Photoshop</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. KARINA Poster -->
+        <div class="design-card" data-design-cat="poster" data-design-idx="2">
+          <div class="design-preview-box">
+            <img src="assets/Designs/KARINA_thumb.jpg" alt="KARINA Cyber-Y2K Visual Poster" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="2">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-pink">CYBER ART</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">KARINA Cyber-Y2K</h3>
+            <p class="design-desc">Futuristic cyber-editorial poster with liquid chrome typography, glitch halftones, and high-impact aesthetics.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Photoshop</span>
+              <span class="design-tag-pill">Visual Art</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. SZA Poster -->
+        <div class="design-card" data-design-cat="poster" data-design-idx="3">
+          <div class="design-preview-box">
+            <img src="assets/Designs/SZA_thumb.jpg" alt="SZA Visual Narrative Poster" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="3">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-yellow">MUSIC ART</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">SZA Narrative Art</h3>
+            <p class="design-desc">Neo-soul music album poster harmonizing melancholic tones, rhythmic typography, and organic texture collage.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Photoshop</span>
+              <span class="design-tag-pill">Collage</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. KIM DAHYUN Poster -->
+        <div class="design-card" data-design-cat="poster" data-design-idx="4">
+          <div class="design-preview-box">
+            <img src="assets/Designs/KIM DAHYUN_thumb.jpg" alt="Kim Dahyun Editorial Typography" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="4">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-pink">EDITORIAL</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">Kim Dahyun Editorial</h3>
+            <p class="design-desc">High-fashion graphic typography layout merging bold Swiss editorial principles with expressive pop visuals.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Photoshop</span>
+              <span class="design-tag-pill">Typography</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. EMI THASORN Poster -->
+        <div class="design-card" data-design-cat="poster" data-design-idx="5">
+          <div class="design-preview-box">
+            <img src="assets/Designs/EMI THASORN_thumb.jpg" alt="Emi Thasorn Cinematic Editorial" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="5">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-cyan">CINEMATIC</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">Emi Thasorn Cinema</h3>
+            <p class="design-desc">Moody cinematic poster layout showcasing textured portraiture, vintage newsprint grain, and evocative typography.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Photoshop</span>
+              <span class="design-tag-pill">Color Grading</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. BONNIE Character Poster -->
+        <div class="design-card" data-design-cat="poster" data-design-idx="6">
+          <div class="design-preview-box">
+            <img src="assets/Designs/BONNIE_thumb.jpg" alt="Bonnie Character Graphic Poster" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="6">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-yellow">CHARACTER</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">Bonnie Graphic Art</h3>
+            <p class="design-desc">Distressed character portraiture featuring underground street art motifs, raw halftone textures, and neo-punk typography.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Photoshop</span>
+              <span class="design-tag-pill">Illustration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Design Preview Inspector Modal -->
+  <div class="design-modal-backdrop" id="designPreviewModal">
+    <div class="design-modal-window">
+      <!-- Retro Titlebar -->
+      <div class="design-modal-titlebar">
+        <div class="design-modal-dots">
+          <div class="modal-dot dot-red"></div>
+          <div class="modal-dot dot-yellow"></div>
+          <div class="modal-dot dot-green"></div>
+        </div>
+        <div class="design-modal-bar-title" id="designModalBarTitle">DESIGN INSPECTOR v2.0 ✦ [PREVIEW]</div>
+        <button class="design-modal-close-btn" id="designModalCloseBtn" aria-label="Close Preview">✕ CLOSE</button>
+      </div>
+
+      <!-- Main Modal Body -->
+      <div class="design-modal-body">
+        <!-- Image Area -->
+        <div class="design-modal-image-area">
+          <img src="assets/Designs/blueos.png" alt="Design Artwork Preview" class="design-modal-img" id="designModalImg">
+        </div>
+
+        <!-- Details Panel -->
+        <div class="design-modal-info-panel">
+          <div>
+            <span class="design-modal-badge badge-cyan" id="designModalBadge">OS CONCEPT</span>
+            <h2 class="design-modal-art-title" id="designModalTitle">BlueOS Concept</h2>
+            <div class="design-modal-meta-row" id="designModalMeta">2025 • Concept Art & OS Graphics</div>
+            <p class="design-modal-narrative" id="designModalNarrative">
+              Tactile retro desktop operating system environment blending pixel widgets with sleek translucent windows.
+            </p>
+
+            <div class="design-specs-box">
+              <div class="design-spec-item">
+                <span class="design-spec-label">Category</span>
+                <span class="design-spec-val" id="designSpecCat">Concept Art & OS Environment</span>
+              </div>
+              <div class="design-spec-item">
+                <span class="design-spec-label">Tools Used</span>
+                <span class="design-spec-val" id="designSpecTools">Figma, Photoshop, Blender 3D</span>
+              </div>
+              <div class="design-spec-item">
+                <span class="design-spec-label">Format & Res</span>
+                <span class="design-spec-val" id="designSpecDim">1587 × 2245 px • Hi-Res</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="assets/Designs/blueos.png" target="_blank" class="jelly-btn jelly-btn-yellow" id="designModalDownloadBtn" style="width: 100%; text-align: center; padding: 0.5rem; font-size: 0.85rem; margin-bottom: 0.5rem;" download>
+              💾 Open Full High-Res Art
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Navigation Toolbar -->
+      <div class="design-modal-toolbar">
+        <button class="design-nav-btn" id="designPrevBtn" title="Previous Artwork (Left Arrow)">
+          ← PREV
+        </button>
+        <div class="design-counter-indicator" id="designCounter">1 / 7</div>
+        <button class="design-nav-btn" id="designNextBtn" title="Next Artwork (Right Arrow)">
+          NEXT →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="background: #000; color: #fff; padding: 2.5rem 0; border-top: 3px solid #000; text-align: center;">
+    <div class="container">
+      <div style="font-family: var(--font-pixel); font-size: 1.2rem; color: var(--lime-neon); margin-bottom: 0.5rem;">
+        YUKIE KIYOSHI ✦ VISUAL DESIGN STUDIO
+      </div>
+      <p style="font-family: var(--font-tech); font-size: 0.85rem; color: #9ca3af; margin-bottom: 1.2rem;">
+        Crafted with purpose, neobrutalist energy & responsive design. All visual artworks © 2025-2026 Yukie Kiyoshi.
+      </p>
+      <a href="index.html" class="jelly-btn" style="display: inline-block; padding: 0.35rem 1rem; font-size: 0.82rem;">
+        ← Back to Main Portfolio
+      </a>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

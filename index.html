@@ -11,6 +11,9 @@
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Preload Critical Hero Video Loop -->
+  <link rel="preload" href="assets/Hero-Photos/yukie_loop.mp4" as="video" type="video/mp4">
 </head>
 <body>
 
@@ -54,27 +57,83 @@
       <ul class="nav-links">
         <li><a href="#hero" class="nav-link-btn active">Home</a></li>
         <li><a href="#about" class="nav-link-btn">About</a></li>
-        <li><a href="#education" class="nav-link-btn">Education</a></li>
         <li><a href="#experience" class="nav-link-btn">Experience</a></li>
+        <li><a href="#content-creator" class="nav-link-btn">Reels</a></li>
         <li><a href="#projects" class="nav-link-btn">Projects</a></li>
+        <li><a href="#designs" class="nav-link-btn">Designs</a></li>
         <li><a href="#gallery" class="nav-link-btn">Gallery</a></li>
-        <li><a href="#certificates" class="nav-link-btn">Certs</a></li>
-        <li><a href="#portfolio" class="nav-link-btn">Portfolio</a></li>
-        <li><a href="#skills" class="nav-link-btn">Skills</a></li>
         <li><a href="#contact" class="nav-link-btn">Contact</a></li>
       </ul>
 
-      <!-- Right Actions: Sound Effect Toggle & Resume Modal -->
+      <!-- Right Actions: Sound Effect Toggle, Resume Modal & Sidebar Drawer Trigger -->
       <div class="nav-right-actions">
         <button class="sfx-toggle-btn" id="sfxToggleBtn" title="Toggle Sound Effects">
-          🔊 SFX: ON
+          SFX: ON
         </button>
         <a href="#resumeModal" class="jelly-btn open-resume-btn" style="padding: 0.35rem 0.95rem; font-size: 0.82rem;">
-          📄 CV
+          CV
         </a>
+        <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Open Navigation Sidebar" title="Quick Menu">
+          MENU
+        </button>
       </div>
     </div>
   </nav>
+
+  <!-- ==========================================================================
+       RETRO NAVIGATION SIDEBAR DRAWER
+       ========================================================================== -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+  <aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Navigation Drawer">
+    <div class="sidebar-header">
+      <div class="sidebar-profile">
+        <img src="assets/Hero-Photos/yukie_call_avatar.jpg" alt="Yukie Kiyoshi" class="sidebar-avatar">
+        <div>
+          <div class="sidebar-name">YUKIE KIYOSHI ✦</div>
+          <div class="sidebar-tagline">AI Engineer & Creative</div>
+        </div>
+      </div>
+      <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Sidebar">CLOSE</button>
+    </div>
+
+    <div class="sidebar-body">
+      <div class="sidebar-section-label">DIRECTORY NAVIGATION</div>
+      <a href="#hero" class="sidebar-link"><span>Home & Virtual Phone</span></a>
+      <a href="#about" class="sidebar-link"><span>About Yukie</span></a>
+      <a href="#education" class="sidebar-link"><span>Academic Education</span></a>
+      <a href="#experience" class="sidebar-link"><span>Professional Experience</span></a>
+      <a href="#content-creator" class="sidebar-link highlight-link" style="background: var(--sunny-yellow);">
+        <span>Content Creator & Reels</span>
+        <span class="sidebar-link-badge">VIDEO</span>
+      </a>
+      <a href="#projects" class="sidebar-link"><span>Academic Projects</span></a>
+      <a href="#designs" class="sidebar-link highlight-link">
+        <span>Visual & Graphic Designs</span>
+        <span class="sidebar-link-badge">NEW</span>
+      </a>
+      <a href="designs.html" class="sidebar-link" style="border-left: 4px solid var(--lime-neon);">
+        <span>Dedicated Design Page</span>
+        <span class="sidebar-link-badge">PAGE</span>
+      </a>
+      <a href="#gallery" class="sidebar-link"><span>Photo Logs & Milestones</span></a>
+      <a href="#certificates" class="sidebar-link"><span>Certifications (33)</span></a>
+      <a href="#portfolio" class="sidebar-link"><span>Full Portfolio QR</span></a>
+      <a href="#skills" class="sidebar-link"><span>Technical Skills</span></a>
+      <a href="#contact" class="sidebar-link"><span>Get in Touch</span></a>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-footer-row">
+        <span style="font-family:var(--font-pixel); font-size:0.75rem; color:#4b5563;">SYSTEM STATUS:</span>
+        <span style="font-family:var(--font-pixel); font-size:0.75rem; color:#047857;">ONLINE ●</span>
+      </div>
+      <div class="sidebar-footer-row">
+        <a href="#resumeModal" class="jelly-btn open-resume-btn" style="flex:1; text-align:center; padding:0.35rem; font-size:0.8rem;">
+          View Full Resume
+        </a>
+      </div>
+    </div>
+  </aside>
 
   <!-- ==========================================================================
        HERO SECTION (RETRO GADGET PHONE & PROFILE FOLDERS)
@@ -89,9 +148,6 @@
           <img src="https://api.iconify.design/pixelarticons:mouse.svg" class="pixel-pointer-cursor" alt="Cursor">
         </h1>
         <div>
-          <div class="hero-sub-academic-tag">
-            <span>🎓 S1 Informatika • Telkom University</span>
-          </div>
           <div>
             <div class="hero-typewriter-tag" id="typewriterTag" title="Click to cycle next role!">
               <span class="typewriter-prefix">✦ ROLE: </span>
@@ -147,7 +203,7 @@
               <!-- Phone Screen Body: Fluid Moving Video Loop of Yukie -->
               <div class="phone-screen-body" id="phoneScreenBody">
                 <div class="phone-filter-badge" id="phoneFilterBadge">STANDARD LENS</div>
-                <video autoplay loop muted playsinline poster="assets/Hero-Photos/yukie_loop_frame.jpg" class="phone-slide-img active" id="phoneHeroVideo">
+                <video autoplay loop muted playsinline preload="auto" poster="assets/Hero-Photos/yukie_loop_frame.jpg" class="phone-slide-img active" id="phoneHeroVideo">
                   <source src="assets/Hero-Photos/yukie_loop.mp4" type="video/mp4">
                   <img src="assets/Hero-Photos/yukie_loop.webp" alt="Yukie Kiyoshi in Motion">
                 </video>
@@ -233,40 +289,6 @@
         </div>
       </div>
 
-      <!-- BOTTOM INTERACTIVE CONSOLE KEYBOARD -->
-      <div class="hero-console-bar">
-        <div class="console-search-row">
-          <button class="console-arrow-btn">❯</button>
-          <input type="text" class="console-input-field" id="consoleSearchInput" placeholder="Ask something or type 'voice', 'code', 'resume'...">
-          <button class="console-send-btn" id="consoleSendBtn">SEND ✈</button>
-        </div>
-
-        <div class="console-keypad-grid">
-          <!-- Left: Retro D-Pad Mock -->
-          <div class="console-dpad-mock" title="Directional Pad">
-            <span class="dpad-btn dpad-up" id="dpadUp">▲</span>
-            <span class="dpad-btn dpad-left" id="dpadLeft">◀</span>
-            <span class="dpad-btn dpad-center">●</span>
-            <span class="dpad-btn dpad-right" id="dpadRight">▶</span>
-            <span class="dpad-btn dpad-down" id="dpadDown">▼</span>
-          </div>
-
-          <!-- CENTER: 4-COLORED CONSOLE ACTION BUTTONS (A, B, X, Y) -->
-          <div class="console-buttons-center" title="Console Action Buttons">
-            <button class="jelly-round-btn console-btn-green" id="btnConsoleGreen" title="Action A: Ask AI">A</button>
-            <button class="jelly-round-btn red console-btn-red" id="btnConsoleRed" title="Action B: Clear Search">B</button>
-            <button class="jelly-round-btn blue console-btn-blue" id="btnConsoleBlue" title="Action X: Roll Lucky">X</button>
-            <button class="jelly-round-btn yellow console-btn-yellow" id="btnConsoleYellow" title="Action Y: Starburst Confetti">Y</button>
-          </div>
-
-          <!-- Right: Start & Select Pills -->
-          <div class="console-start-select-mock">
-            <button class="pill-slit-btn" id="consoleSelectBtn" title="Clear Search">SELECT</button>
-            <button class="pill-slit-btn" id="consoleStartBtn" title="Submit Search">START</button>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -283,7 +305,7 @@
 
         <div class="about-row">
           <div class="about-photo-card">
-            <video autoplay loop muted playsinline poster="assets/Hero-Photos/yukie_about_loop_frame.jpg" class="about-video-el">
+            <video autoplay loop muted playsinline preload="auto" poster="assets/Hero-Photos/yukie_about_loop_frame.jpg" class="about-video-el">
               <source src="assets/Hero-Photos/yukie_about_loop.mp4" type="video/mp4">
               <img src="assets/Hero-Photos/yukie_about_loop.webp" alt="Yukie Kiyoshi in Motion" class="about-video-el">
             </video>
@@ -556,16 +578,143 @@
           </div>
 
           <div class="exp-item-card">
-            <div class="exp-item-top">
-              <h3 class="exp-role-title">Mahasiswa '23 of The Year</h3>
-              <span class="exp-date-tag">2024 & 2025</span>
+          <div class="exp-card">
+            <div class="exp-card-header">
+              <span class="exp-badge">COLLEGE HONOR</span>
+              <span class="exp-duration">Dec 2024</span>
             </div>
+            <h3 class="exp-title">Student of The Year (Informatika)</h3>
             <div class="exp-company-sub">HIMA S1 Informatika Telkom University</div>
             <p style="font-size: 0.95rem; color: #334155;">Awarded highest honour for outstanding academic excellence, leadership, and community service.</p>
           </div>
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTENT CREATOR & SHORT-FORM REELS VIDEO SHOWCASE (6 CLIPS)
+       ========================================================================== -->
+  <section id="content-creator">
+    <div class="container">
+      <!-- Section Title & Narrative -->
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="section-badge-pill">★ CREATIVE MEDIA & SPOKESPERSON ★</div>
+        <h2 class="section-title">Content Creator & Reels Showcase</h2>
+        <p class="section-subtitle">Dynamic short-form video content, creative storytelling, campus tech journalism, and voice narration.</p>
+      </div>
+
+      <!-- Prominent Google Drive Full Portfolio Banner -->
+      <div class="gdrive-highlight-banner">
+        <div class="gdrive-banner-text">
+          <div class="gdrive-banner-icon">📁</div>
+          <div>
+            <h3 class="gdrive-banner-title">Full Content & Video Archive on Google Drive</h3>
+            <p class="gdrive-banner-sub">
+              Below are quick responsive previews of selected short clips. Looking for the complete uncut videos, high-resolution masters, and comprehensive creative media assets?
+            </p>
+          </div>
+        </div>
+        <div>
+          <a href="https://drive.google.com/drive/folders/15lLph05Sgvaihsx_NOExqJFq4V8pacdR?hl=id" target="_blank" rel="noopener" class="jelly-btn jelly-btn-yellow" style="padding: 0.6rem 1.4rem; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+            <span>📂 Open Full GDrive Archive ↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 6 Smartphone Reels Grid -->
+      <div class="reels-grid">
+        <!-- 1. Pasar Bunga Pandu -->
+        <div class="reel-card" data-reel-id="1">
+          <div class="reel-speaker-notch"></div>
+          <video autoplay loop muted playsinline preload="none" poster="assets/content creator/web/content_1_poster.jpg" class="reel-video">
+            <source src="assets/content creator/web/content_1.mp4" type="video/mp4">
+          </video>
+          <div class="reel-bottom-meta">
+            <div class="reel-actions-row">
+              <a href="https://www.instagram.com/p/DUCm_J3CccK/" target="_blank" rel="noopener" class="reel-gdrive-btn">
+                <span>Watch Full Video ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Stoik Coffee -->
+        <div class="reel-card" data-reel-id="2">
+          <div class="reel-speaker-notch"></div>
+          <video autoplay loop muted playsinline preload="none" poster="assets/content creator/web/content_2_poster.jpg" class="reel-video">
+            <source src="assets/content creator/web/content_2.mp4" type="video/mp4">
+          </video>
+          <div class="reel-bottom-meta">
+            <div class="reel-actions-row">
+              <a href="https://www.instagram.com/p/DTcOoPGCRDW/" target="_blank" rel="noopener" class="reel-gdrive-btn">
+                <span>Watch Full Video ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Kintsugi Terrace -->
+        <div class="reel-card" data-reel-id="3">
+          <div class="reel-speaker-notch"></div>
+          <video autoplay loop muted playsinline preload="none" poster="assets/content creator/web/content_3_poster.jpg" class="reel-video">
+            <source src="assets/content creator/web/content_3.mp4" type="video/mp4">
+          </video>
+          <div class="reel-bottom-meta">
+            <div class="reel-actions-row">
+              <a href="https://www.instagram.com/p/DTsPtyGCaVZ/" target="_blank" rel="noopener" class="reel-gdrive-btn">
+                <span>Watch Full Video ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Museum Srihadi -->
+        <div class="reel-card" data-reel-id="4">
+          <div class="reel-speaker-notch"></div>
+          <video autoplay loop muted playsinline preload="none" poster="assets/content creator/web/content_4_poster.jpg" class="reel-video">
+            <source src="assets/content creator/web/content_4.mp4" type="video/mp4">
+          </video>
+          <div class="reel-bottom-meta">
+            <div class="reel-actions-row">
+              <a href="https://www.instagram.com/p/DUHw0pbCfLc/" target="_blank" rel="noopener" class="reel-gdrive-btn">
+                <span>Watch Full Video ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Travel Ads Video -->
+        <div class="reel-card" data-reel-id="5">
+          <div class="reel-speaker-notch"></div>
+          <video autoplay loop muted playsinline preload="none" poster="assets/content creator/web/content_5_poster.jpg" class="reel-video">
+            <source src="assets/content creator/web/content_5.mp4" type="video/mp4">
+          </video>
+          <div class="reel-bottom-meta">
+            <div class="reel-actions-row">
+              <a href="https://www.instagram.com/p/DUAk40hia8J/" target="_blank" rel="noopener" class="reel-gdrive-btn">
+                <span>Watch Full Video ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Little Indonesia Bandung -->
+        <div class="reel-card" data-reel-id="6">
+          <div class="reel-speaker-notch"></div>
+          <video autoplay loop muted playsinline preload="none" poster="assets/content creator/web/content_6_poster.jpg" class="reel-video">
+            <source src="assets/content creator/web/content_6.mp4" type="video/mp4">
+          </video>
+          <div class="reel-bottom-meta">
+            <div class="reel-actions-row">
+              <a href="https://www.instagram.com/reel/DUIbfKJk_W_/?stkn=c3ZlNDNpeWw1M3lo" target="_blank" rel="noopener" class="reel-gdrive-btn">
+                <span>Watch Full Video ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -793,6 +942,175 @@
         </div>
         <div class="qr-box-inner" data-zoom-src="assets/Projects/projects-qr.png" data-zoom-cap="Academic Projects Full QR Code">
           <img src="assets/Projects/projects-qr.png" alt="Projects QR Code">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       GRAPHIC & VISUAL DESIGN SHOWCASE (7 INTERACTIVE WORKS)
+       ========================================================================== -->
+  <section id="designs">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="section-badge-pill">★ VISUAL & GRAPHIC WORKS ★</div>
+        <h2 class="section-title">Design & Creative Showcase</h2>
+        <p class="section-subtitle">Visual identity, digital graphic posters, typography, brand assets, and creative design crafted with Canva, Photoshop, Figma & Illustrator.</p>
+        <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="designs.html" class="jelly-btn" style="padding: 0.35rem 1.05rem; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>↗ Open Dedicated Design Page</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Category Filter Bar -->
+      <div class="projects-filter-bar" id="designsFilterBar">
+        <button class="proj-filter-pill active" data-design-filter="all">★ All Works (7)</button>
+        <button class="proj-filter-pill" data-design-filter="poster">Posters & Editorial (4)</button>
+        <button class="proj-filter-pill" data-design-filter="concept">Concept Art & OS (1)</button>
+        <button class="proj-filter-pill" data-design-filter="brand">Brand & Packaging (2)</button>
+      </div>
+
+      <!-- Design Cards Grid -->
+      <div class="designs-grid" id="designsGrid">
+        <!-- 0. BlueOS Concept -->
+        <div class="design-card" data-design-cat="concept" data-design-idx="0">
+          <div class="design-preview-box">
+            <img src="assets/Designs/blueos_thumb.jpg" alt="BlueOS Desktop OS Concept" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="0">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-cyan">OS CONCEPT</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">BlueOS Concept</h3>
+            <p class="design-desc">Tactile retro desktop operating system environment blending pixel widgets with sleek translucent windows.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Figma</span>
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Photoshop</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1. MATCHAAA! Branding -->
+        <div class="design-card" data-design-cat="brand" data-design-idx="1">
+          <div class="design-preview-box">
+            <img src="assets/Designs/MATCHAAA!_thumb.jpg" alt="MATCHAAA! Artisan Drink Packaging" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="1">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-lime">BRANDING</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">MATCHAAA! Beverage</h3>
+            <p class="design-desc">Vibrant pop-art brand identity and packaging layout featuring dynamic organic Japanese tea iconography.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Illustrator</span>
+              <span class="design-tag-pill">Photoshop</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. KARINA Poster -->
+        <div class="design-card" data-design-cat="poster" data-design-idx="2">
+          <div class="design-preview-box">
+            <img src="assets/Designs/KARINA_thumb.jpg" alt="KARINA Cyber-Y2K Visual Poster" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="2">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-pink">CYBER ART</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">KARINA Cyber-Y2K</h3>
+            <p class="design-desc">Futuristic cyber-editorial poster with liquid chrome typography, glitch halftones, and high-impact aesthetics.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Photoshop</span>
+              <span class="design-tag-pill">Visual Art</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. SZA Poster -->
+        <div class="design-card" data-design-cat="poster" data-design-idx="3">
+          <div class="design-preview-box">
+            <img src="assets/Designs/SZA_thumb.jpg" alt="SZA Visual Narrative Poster" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="3">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-yellow">MUSIC ART</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">SZA Narrative Art</h3>
+            <p class="design-desc">Neo-soul music album poster harmonizing melancholic tones, rhythmic typography, and organic texture collage.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Photoshop</span>
+              <span class="design-tag-pill">Collage</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. KIM DAHYUN Poster -->
+        <div class="design-card" data-design-cat="poster" data-design-idx="4">
+          <div class="design-preview-box">
+            <img src="assets/Designs/KIM DAHYUN_thumb.jpg" alt="Kim Dahyun Editorial Typography" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="4">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-pink">EDITORIAL</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">Kim Dahyun Editorial</h3>
+            <p class="design-desc">High-fashion graphic typography layout merging bold Swiss editorial principles with expressive pop visuals.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Photoshop</span>
+              <span class="design-tag-pill">Typography</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. EMI THASORN Poster -->
+        <div class="design-card" data-design-cat="poster" data-design-idx="5">
+          <div class="design-preview-box">
+            <img src="assets/Designs/EMI THASORN_thumb.jpg" alt="Emi Thasorn Cinematic Editorial" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="5">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-cyan">CINEMATIC</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">Emi Thasorn Cinema</h3>
+            <p class="design-desc">Moody cinematic poster layout showcasing textured portraiture, vintage newsprint grain, and evocative typography.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Photoshop</span>
+              <span class="design-tag-pill">Color Grading</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. BONNIE Character Poster -->
+        <div class="design-card" data-design-cat="poster" data-design-idx="6">
+          <div class="design-preview-box">
+            <img src="assets/Designs/BONNIE_thumb.jpg" alt="Bonnie Character Graphic Poster" loading="lazy" class="design-thumb-img">
+            <div class="design-card-overlay">
+              <button class="design-quick-preview-btn" data-preview-idx="6">👁️ Preview Art</button>
+            </div>
+            <span class="design-badge badge-yellow">CHARACTER</span>
+          </div>
+          <div class="design-card-info">
+            <h3 class="design-title">Bonnie Graphic Art</h3>
+            <p class="design-desc">Distressed character portraiture featuring underground street art motifs, raw halftone textures, and neo-punk typography.</p>
+            <div class="design-tags">
+              <span class="design-tag-pill">Canva</span>
+              <span class="design-tag-pill">Photoshop</span>
+              <span class="design-tag-pill">Illustration</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1237,8 +1555,8 @@
             <div class="meter-track"><div class="meter-fill" style="width: 88%; background: var(--sunny-yellow);"></div></div>
           </div>
           <div class="skill-meter-row">
-            <div class="skill-meter-label"><span>UI/UX Prototyping (Figma)</span><span>86%</span></div>
-            <div class="meter-track"><div class="meter-fill" style="width: 86%; background: var(--sunny-yellow);"></div></div>
+            <div class="skill-meter-label"><span>Graphic & Creative Design (Canva, Figma, Photoshop)</span><span>88%</span></div>
+            <div class="meter-track"><div class="meter-fill" style="width: 88%; background: var(--sunny-yellow);"></div></div>
           </div>
         </div>
       </div>
@@ -1796,6 +2114,76 @@
       </div>
       <img src="" alt="Zoom" class="lightbox-img-view" id="lightboxViewImg">
       <div class="lightbox-caption-text" id="lightboxViewCaption"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       DESIGN PREVIEW INSPECTOR & LIGHTBOX MODAL
+       ========================================================================== -->
+  <div class="design-modal-backdrop" id="designPreviewModal">
+    <div class="design-modal-window">
+      <!-- Retro Titlebar -->
+      <div class="design-modal-titlebar">
+        <div class="design-modal-dots">
+          <div class="modal-dot dot-red"></div>
+          <div class="modal-dot dot-yellow"></div>
+          <div class="modal-dot dot-green"></div>
+        </div>
+        <div class="design-modal-bar-title" id="designModalBarTitle">DESIGN INSPECTOR v2.0 ✦ [PREVIEW]</div>
+        <button class="design-modal-close-btn" id="designModalCloseBtn" aria-label="Close Preview">✕ CLOSE</button>
+      </div>
+
+      <!-- Main Modal Body -->
+      <div class="design-modal-body">
+        <!-- Image Area -->
+        <div class="design-modal-image-area">
+          <img src="assets/Designs/blueos.png" alt="Design Artwork Preview" class="design-modal-img" id="designModalImg">
+        </div>
+
+        <!-- Details Panel -->
+        <div class="design-modal-info-panel">
+          <div>
+            <span class="design-modal-badge badge-cyan" id="designModalBadge">OS CONCEPT</span>
+            <h2 class="design-modal-art-title" id="designModalTitle">BlueOS Concept</h2>
+            <div class="design-modal-meta-row" id="designModalMeta">2025 • Concept Art & OS Graphics</div>
+            <p class="design-modal-narrative" id="designModalNarrative">
+              Tactile retro desktop operating system environment blending pixel widgets with sleek translucent windows.
+            </p>
+
+            <div class="design-specs-box">
+              <div class="design-spec-item">
+                <span class="design-spec-label">Category</span>
+                <span class="design-spec-val" id="designSpecCat">Concept Art & OS Environment</span>
+              </div>
+              <div class="design-spec-item">
+                <span class="design-spec-label">Tools Used</span>
+                <span class="design-spec-val" id="designSpecTools">Figma, Photoshop, Blender 3D</span>
+              </div>
+              <div class="design-spec-item">
+                <span class="design-spec-label">Format & Res</span>
+                <span class="design-spec-val" id="designSpecDim">1587 × 2245 px • Hi-Res</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="assets/Designs/blueos.png" target="_blank" class="jelly-btn jelly-btn-yellow" id="designModalDownloadBtn" style="width: 100%; text-align: center; padding: 0.5rem; font-size: 0.85rem; margin-bottom: 0.5rem;" download>
+              💾 Open Full High-Res Art
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Navigation Toolbar -->
+      <div class="design-modal-toolbar">
+        <button class="design-nav-btn" id="designPrevBtn" title="Previous Artwork (Left Arrow)">
+          ← PREV
+        </button>
+        <div class="design-counter-indicator" id="designCounter">1 / 7</div>
+        <button class="design-nav-btn" id="designNextBtn" title="Next Artwork (Right Arrow)">
+          NEXT →
+        </button>
+      </div>
     </div>
   </div>
 

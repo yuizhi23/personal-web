@@ -2,3 +2,6 @@
 .tempmediaStorage/
 *.log
 yukie's/
+*.zip
+*_original.mp4
+

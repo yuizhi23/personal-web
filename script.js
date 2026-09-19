@@ -1539,17 +1539,15 @@ function initDesignShowcase() {
 }
 
 /* ==========================================================================
-   24. CONTENT CREATOR & REELS VIDEO PLAYER (MOBILE-OPTIMIZED)
+   24. CONTENT CREATOR & REELS VIDEO PLAYER (CONTINUOUS AUTOPLAY & LOOP)
    ========================================================================== */
 function initContentCreatorReels() {
   const reelCards = document.querySelectorAll('.reel-card');
-  if (!reelCards.length) return;
+  const allReelVideos = document.querySelectorAll('.reel-video');
+  if (!allReelVideos.length) return;
 
-  // Prepare each video element with mobile inline playback attributes
-  reelCards.forEach(card => {
-    const v = card.querySelector('.reel-video');
-    if (!v) return;
-
+  // Function to safely attempt autoplay on a video element
+  function safePlayVideo(v) {
     v.muted = true;
     v.defaultMuted = true;
     v.playsInline = true;
@@ -1558,11 +1556,46 @@ function initContentCreatorReels() {
     v.setAttribute('webkit-playsinline', '');
     v.setAttribute('disableRemotePlayback', '');
 
-    v.addEventListener('playing', () => card.classList.add('is-playing'));
-    v.addEventListener('pause', () => card.classList.remove('is-playing'));
+    const p = v.play();
+    if (p !== undefined) {
+      p.then(() => {
+        v.closest('.reel-card')?.classList.add('is-playing');
+      }).catch(() => {
+        // Fallback: auto-retry on any user touch or scroll
+      });
+    }
+  }
+
+  // Initialize and start all videos immediately on page load
+  allReelVideos.forEach(v => {
+    v.muted = true;
+    v.defaultMuted = true;
+    v.playsInline = true;
+    v.loop = true;
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    v.setAttribute('disableRemotePlayback', '');
+
+    // Seamless continuous loop guarantee
+    v.addEventListener('ended', () => {
+      v.currentTime = 0;
+      safePlayVideo(v);
+    });
+
+    v.addEventListener('playing', () => v.closest('.reel-card')?.classList.add('is-playing'));
+    v.addEventListener('pause', () => v.closest('.reel-card')?.classList.remove('is-playing'));
+
+    // Start playing immediately
+    if (v.readyState >= 2) {
+      safePlayVideo(v);
+    } else {
+      v.addEventListener('loadeddata', () => safePlayVideo(v), { once: true });
+      v.addEventListener('canplay', () => safePlayVideo(v), { once: true });
+      safePlayVideo(v);
+    }
   });
 
-  // Per-card IntersectionObserver: only play videos actively in view (saves mobile GPU)
+  // Per-card IntersectionObserver: ensure visible videos are actively moving
   const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const card = entry.target;
@@ -1570,46 +1603,37 @@ function initContentCreatorReels() {
       if (!v) return;
 
       if (entry.isIntersecting) {
-        // Start playback when card is visible on screen
-        const playPromise = v.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {
-            // If mobile browser requires touch gesture
-            const onFirstTouch = () => {
-              v.play().catch(() => {});
-              document.removeEventListener('touchstart', onFirstTouch);
-              document.removeEventListener('pointerdown', onFirstTouch);
-            };
-            document.addEventListener('touchstart', onFirstTouch, { once: true });
-            document.addEventListener('pointerdown', onFirstTouch, { once: true });
-          });
-        }
-      } else {
-        // Pause when scrolled off screen to keep mobile butter-smooth
-        if (!v.paused) {
-          v.pause();
+        if (v.paused) {
+          safePlayVideo(v);
         }
       }
     });
   }, {
-    threshold: 0.25,
-    rootMargin: '50px 0px 50px 0px'
+    threshold: 0.05,
+    rootMargin: '150px 0px 150px 0px'
   });
 
   reelCards.forEach(card => videoObserver.observe(card));
 
-  // Resume visible videos when tab / app becomes active again
+  // Global touch / scroll wake-up: resumes any video blocked by strict mobile power saver
+  const wakeUpAllVideos = () => {
+    allReelVideos.forEach(v => {
+      const rect = v.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight + 200 && rect.bottom > -200;
+      if (isVisible && v.paused) {
+        safePlayVideo(v);
+      }
+    });
+  };
+
+  ['touchstart', 'pointerdown', 'scroll', 'click'].forEach(evt => {
+    window.addEventListener(evt, wakeUpAllVideos, { passive: true });
+  });
+
+  // Resume when switching back to tab
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) {
-      reelCards.forEach(card => {
-        const v = card.querySelector('.reel-video');
-        if (!v) return;
-        const rect = card.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-        if (isVisible && v.paused) {
-          v.play().catch(() => {});
-        }
-      });
+      wakeUpAllVideos();
     }
   });
 }
